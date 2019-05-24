@@ -9,7 +9,7 @@ const App: React.FC = () => {
       <header className="App-header">
         <Image />
         <p>
-          Edit <code>Bazinga</code> and save to reload.
+          Edit <code>xoxo</code> and save to reload.
         </p>
         <a
           className="App-link"
@@ -22,6 +22,6 @@ const App: React.FC = () => {
       </header>
     </div>
   );
-}
+};
 
 export default hot(module)(App);
