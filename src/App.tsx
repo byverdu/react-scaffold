@@ -1,14 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
+import Image from 'Components/Image';
 import './App.css';
+import { hot } from 'react-hot-loader';
 
 const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <Image />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          Edit <code>Bazinga</code> and save to reload.
         </p>
         <a
           className="App-link"
@@ -23,4 +24,4 @@ const App: React.FC = () => {
   );
 }
 
-export default App;
+export default hot(module)(App);

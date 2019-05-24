@@ -10,4 +10,8 @@ Custom configuration for [create-react-app](https://facebook.github.io/create-re
 > yarn start
 ```
 
-More info about `create-react-app` in the [docs page](https://facebook.github.io/create-react-app/docs/getting-started);
+More info about `create-react-app` in their [docs page](https://facebook.github.io/create-react-app/docs/getting-started).
+
+### Added Features
+
+1. [Hot reloading](https://github.com/gaearon/react-hot-loader). Make sure that `@hot-loader/react-dom` version matches with `react-dom` version.
