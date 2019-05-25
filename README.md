@@ -14,4 +14,7 @@ More info about `create-react-app` in their [docs page](https://facebook.github.
 
 ### Added Features
 
+1. [husky](https://github.com/typicode/husky) for git hooks, check `package.json` scripts section.
+1. [prettier](https://prettier.io/), edit `.prettierrc` to add your styling rules.
+1. [tslint](https://palantir.github.io/tslint/), add files to exclude in `tslint.json` section `linterOptions > exclude` array.
 1. [Hot reloading](https://github.com/gaearon/react-hot-loader). Make sure that `@hot-loader/react-dom` version matches with `react-dom` version.
