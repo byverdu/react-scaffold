@@ -30,6 +30,7 @@
     "jest",
     "src/setupTests.ts",
     "mock-service",
-    "coverage"
+    "coverage",
+    "serviceWorker.ts"
   ]
 }
