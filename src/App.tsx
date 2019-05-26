@@ -3,9 +3,7 @@ import React from 'react';
 import { hot } from 'react-hot-loader';
 import './App.css';
 
-const x = (pollo) => ({
-	pollo,
-});
+const test = Array.from('pollo').forEach((elem) => Number(elem) * 3);
 
 const App: React.FC = () => {
 	return (
