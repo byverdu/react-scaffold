@@ -1,9 +1,7 @@
 import Image from 'Components/Image';
 import React from 'react';
 import { hot } from 'react-hot-loader';
-import './App.css';
-
-const test = Array.from('pollo').forEach((elem) => Number(elem) * 3);
+import 'Theme/App.css';
 
 const App: React.FC = () => {
 	return (
