@@ -1,7 +1,8 @@
 import Image from 'Components/Image';
 import React from 'react';
 import { hot } from 'react-hot-loader';
-import 'Theme/App.css';
+import styles from 'Theme/App.module.scss';
+import 'Theme/App.scss';
 
 const App: React.FC = () => {
 	return (
@@ -12,7 +13,7 @@ const App: React.FC = () => {
 					Edit <code>xoxo</code> and save to reload.
 				</p>
 				<a
-					className="App-link"
+					className={styles.link}
 					href="https://reactjs.org"
 					target="_blank"
 					rel="noopener noreferrer"
