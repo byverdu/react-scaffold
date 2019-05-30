@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/byverdu/react-scaffold.svg?branch=master)](https://travis-ci.org/byverdu/react-scaffold)
+
 # React-Scaffold
 
 Custom configuration for [create-react-app](https://facebook.github.io/create-react-app/) using typescript.
