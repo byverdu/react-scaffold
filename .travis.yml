@@ -16,4 +16,4 @@ branches:
   - master
 
 script:
-  - yarn build
+  - npm build
