@@ -4,7 +4,7 @@ node_js:
 
 env:
   global:
-    - NODE_ENV=development
+    - NODE_ENV=production
 
 cache:
   yarn: true
@@ -17,4 +17,4 @@ branches:
   - master
 
 script:
-  - npm build
+  - yarn build
