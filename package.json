@@ -49,7 +49,8 @@
     "test": "react-app-rewired test --env=jsdom --coverage --watchAll=false",
     "test-watch": "react-app-rewired test --env=jsdom",
     "test-push": "yarn test test --env=jsdom --coverage --watchAll=false",
-    "lint": "./node_modules/.bin/eslint . --ext .ts,.tsx"
+    "lint": "./node_modules/.bin/eslint . --ext .ts,.tsx",
+    "prettier": "./node_modules/.bin/prettier \"src/**/*\" --write"
   },
   "jest": {
     "coverageThreshold": {
@@ -73,7 +74,7 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "./node_modules/.bin/prettier \"src/**/*\" --write",
+      "prettier --write",
       "git add"
     ]
   },
