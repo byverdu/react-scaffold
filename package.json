@@ -1,102 +1,102 @@
 {
-    "name": "react-scaffold",
-    "version": "0.1.0",
-    "private": true,
-    "dependencies": {
-        "@hot-loader/react-dom": "16.8.6",
-        "@types/enzyme": "^3.9.3",
-        "@types/enzyme-adapter-react-16": "^1.0.5",
-        "@types/jest": "24.0.13",
-        "@types/node": "12.0.2",
-        "@types/react": "16.8.18",
-        "@types/react-dom": "16.8.4",
-        "@types/react-redux": "^7.0.9",
-        "@types/redux": "^3.6.0",
-        "@types/redux-actions": "^2.6.1",
-        "@typescript-eslint/eslint-plugin": "^1.9.0",
-        "concurrently": "^4.1.0",
-        "customize-cra": "^0.2.12",
-        "enzyme": "^3.9.0",
-        "enzyme-adapter-react-16": "^1.13.2",
-        "eslint": "5.x",
-        "eslint-config-react-app": "^4.0.1",
-        "eslint-plugin-flowtype": "2.x",
-        "eslint-plugin-import": "2.x",
-        "eslint-plugin-jsx-a11y": "6.x",
-        "eslint-plugin-react": "7.x",
-        "eslint-plugin-react-hooks": "1.5.0",
-        "husky": "^2.3.0",
-        "lint-staged": "^8.1.7",
-        "merge-reducers": "^1.0.0",
-        "node-sass-chokidar": "^1.3.4",
-        "prettier": "^1.17.1",
-        "react": "16.8.6",
-        "react-app-rewired": "^2.1.3",
-        "react-dom": "16.8.6",
-        "react-hot-loader": "^4.8.8",
-        "react-redux": "^7.0.3",
-        "react-scripts": "3.0.1",
-        "redux": "^4.0.1",
-        "redux-actions": "^2.6.5",
-        "redux-devtools-extension": "^2.13.8",
-        "typescript": "3.4.5"
+  "name": "react-scaffold",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@hot-loader/react-dom": "16.8.6",
+    "@types/enzyme": "^3.9.3",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "24.0.13",
+    "@types/node": "12.0.2",
+    "@types/react": "16.8.18",
+    "@types/react-dom": "16.8.4",
+    "@types/react-redux": "^7.0.9",
+    "@types/redux": "^3.6.0",
+    "@types/redux-actions": "^2.6.1",
+    "@typescript-eslint/eslint-plugin": "^1.9.0",
+    "concurrently": "^4.1.0",
+    "customize-cra": "^0.2.12",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.13.2",
+    "eslint": "5.x",
+    "eslint-config-react-app": "^4.0.1",
+    "eslint-plugin-flowtype": "2.x",
+    "eslint-plugin-import": "2.x",
+    "eslint-plugin-jsx-a11y": "6.x",
+    "eslint-plugin-react": "7.x",
+    "eslint-plugin-react-hooks": "1.5.0",
+    "husky": "^2.3.0",
+    "lint-staged": "^8.1.7",
+    "merge-reducers": "^1.0.0",
+    "node-sass-chokidar": "^1.3.4",
+    "prettier": "^1.17.1",
+    "react": "16.8.6",
+    "react-app-rewired": "^2.1.3",
+    "react-dom": "16.8.6",
+    "react-hot-loader": "^4.8.8",
+    "react-redux": "^7.0.3",
+    "react-scripts": "3.0.1",
+    "redux": "^4.0.1",
+    "redux-actions": "^2.6.5",
+    "redux-devtools-extension": "^2.13.8",
+    "typescript": "3.4.5"
+  },
+  "scripts": {
+    "dev": "concurrently \"yarn start\"",
+    "start": "react-app-rewired start",
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "build": "concurrently \"yarn build-css\" \"react-app-rewired build\"",
+    "test": "react-app-rewired test --env=jsdom --coverage --watchAll=false",
+    "test-watch": "react-app-rewired test --env=jsdom",
+    "test-push": "yarn test test --env=jsdom --coverage --watchAll=false",
+    "lint": "./node_modules/.bin/eslint . --ext .ts,.tsx"
+  },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "statements": 0,
+        "branches": 0,
+        "functions": 0,
+        "lines": 0
+      }
     },
-    "scripts": {
-        "dev": "concurrently \"yarn start\"",
-        "start": "react-app-rewired start",
-        "build-css": "node-sass-chokidar src/ -o src/",
-        "build": "concurrently \"yarn build-css\" \"react-app-rewired build\"",
-        "test": "react-app-rewired test --env=jsdom --coverage --watchAll=false",
-        "test-watch": "react-app-rewired test --env=jsdom",
-        "test-push": "yarn test test --env=jsdom --coverage --watchAll=false",
-        "lint": "./node_modules/.bin/eslint . --ext .ts,.tsx"
-    },
-    "jest": {
-        "coverageThreshold": {
-            "global": {
-                "statements": 0,
-                "branches": 0,
-                "functions": 0,
-                "lines": 0
-            }
-        },
-        "collectCoverageFrom": [
-            "src/**/*.{ts,tsx}",
-            "!src/**/*.d.ts",
-            "!src/setupTests.ts",
-            "!src/serviceWorker.ts",
-            "!src/index.tsx"
-        ]
-    },
-    "eslintConfig": {
-        "extends": "react-app"
-    },
-    "lint-staged": {
-        "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-            "prettier --write",
-            "git add"
-        ]
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged",
-            "post-commit": "npm run lint",
-            "pre-push": "CI=true && npm run lint && npm run test-push && npm run build"
-        }
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    },
-    "devDependencies": {
-        "enzyme-to-json": "^3.3.5"
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}",
+      "!src/**/*.d.ts",
+      "!src/setupTests.ts",
+      "!src/serviceWorker.ts",
+      "!src/index.tsx"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "./node_modules/.bin/prettier \"src/**/*\" --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "post-commit": "npm run lint",
+      "pre-push": "CI=true && npm run lint && npm run test-push && npm run build"
     }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "enzyme-to-json": "^3.3.5"
+  }
 }
