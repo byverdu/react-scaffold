@@ -1,4 +1,11 @@
 #!/bin/bash
+
+if [ "$NODE_ENV" == "production" ];
+  then
+    node --print 'process.env.NODE_ENV'
+    exit 0
+fi
+
 echo -e "\x1b[32mThe actual git remote is:\x1b[0m"
 git remote -v
 echo -e "\x1b[32mDo you want to change it?\x1b[0m"
