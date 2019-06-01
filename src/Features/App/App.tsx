@@ -1,17 +1,35 @@
 import Image from 'Components/Image';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { hot } from 'react-hot-loader';
 import styles from 'Theme/App.module.scss';
 import 'Theme/App.scss';
+import Todos from 'Features/Todo/views/TodosContainer';
+import { List } from 'immutable';
+import { Todo } from 'Models/Todo';
+import { connect } from 'react-redux';
+import { getAllTodos } from 'Features/Todo/redux/actionCreators';
 
-const App: React.FC = () => {
+interface Props2 {
+  dispatch: any;
+}
+// tslint-disable-next-line
+const App: React.FC<Props2> = ({ dispatch }) => {
+  useEffect(() => {
+    const todo: Todo = {
+      id: '',
+      text: 'xoxo',
+      done: false,
+    };
+
+    const todos = List([todo]);
+    dispatch(getAllTodos(todos));
+  });
+
   return (
     <div className="App">
       <header className="App-header">
         <Image />
-        <p>
-          Edit <code>xoxo</code> and save to reload.
-        </p>
+        <h1>Todo List App</h1>
         <a
           className={styles.link}
           href="https://reactjs.org"
@@ -21,8 +39,11 @@ const App: React.FC = () => {
           Learn React
         </a>
       </header>
+      <Todos />
     </div>
   );
 };
 
-export default hot(module)(App);
+const hotModule = hot(module)(App);
+
+export default connect()(hotModule);
