@@ -1,4 +1,4 @@
-import { TodoState, Todo } from 'Models/Todo';
+import { TodoState, Todo, SetTodoStatus } from 'Models/Todo';
 import { List } from 'immutable';
 import { handleActions } from 'redux-actions';
 import * as Actions from 'Features/Todo/redux/constants';
@@ -34,4 +34,22 @@ const todosReducer = handleActions<TodoState, List<Todo>>(
   initialState
 );
 
-export default mergeReducers(todoReducer, todosReducer);
+const statusReducer = handleActions<TodoState, SetTodoStatus>(
+  {
+    [Actions.SET_TODO_STATUS]: (state, { payload }): TodoState => {
+      const todoIndex = state.todos.findIndex((item) => item.id === payload.id);
+      const todo = state.todos.get(todoIndex);
+      todo.done = payload.status;
+
+      const todos = state.todos.set(todoIndex, todo);
+
+      return {
+        ...state,
+        todos,
+      };
+    },
+  },
+  initialState
+);
+
+export default mergeReducers(todoReducer, todosReducer, statusReducer);

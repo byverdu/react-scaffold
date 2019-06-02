@@ -3,7 +3,7 @@ import Todos from 'Features/Todo/views/TodoComponent';
 import { List } from 'immutable';
 import { Todo } from 'Models/Todo';
 import { RootState } from 'Core/reducers';
-import { addTodo } from 'Features/Todo/redux/actionCreators';
+import { addTodo, setTodoStatus } from 'Features/Todo/redux/actionCreators';
 
 export interface TodosPropsToState {
   todos: List<Todo>;
@@ -12,6 +12,7 @@ export interface TodosPropsToState {
 
 export interface TodosDispatchToProps {
   addTodo: (todo: Todo) => void;
+  checkHandler: (id: string, isChecked: boolean) => void;
 }
 
 const mapPropsToState = ({ todos }: RootState): TodosPropsToState => ({
@@ -21,6 +22,8 @@ const mapPropsToState = ({ todos }: RootState): TodosPropsToState => ({
 
 const mapDispatchToProps = (dispatch): TodosDispatchToProps => ({
   addTodo: (todo: Todo) => dispatch(addTodo(todo)),
+  checkHandler: (id: string, isChecked: boolean) =>
+    dispatch(setTodoStatus({ id, status: isChecked })),
 });
 
 export default connect<TodosPropsToState, TodosDispatchToProps>(

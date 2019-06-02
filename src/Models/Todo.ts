@@ -10,3 +10,8 @@ export interface TodoState {
   todos: List<Todo>;
   todosLength: number;
 }
+
+export interface SetTodoStatus {
+  id: string;
+  status: boolean;
+}

@@ -9,6 +9,7 @@ const TodosContainer: React.SFC<ContainerProps> = ({
   todos,
   todosLength,
   addTodo,
+  checkHandler,
 }) => {
   const renderTodos = () => {
     if (!todos) {
@@ -17,8 +18,10 @@ const TodosContainer: React.SFC<ContainerProps> = ({
 
     return (
       <section>
-        <h3>Showings {todosLength} todo tasks</h3>
-        <Todos todos={todos} />
+        <h3>
+          Showings {todosLength} <code>todo</code> tasks
+        </h3>
+        <Todos checkHandler={checkHandler} todos={todos} />
       </section>
     );
   };
