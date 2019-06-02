@@ -1,49 +1,22 @@
 import Image from 'Components/Image';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { hot } from 'react-hot-loader';
 import styles from 'Theme/App.module.scss';
 import 'Theme/App.scss';
-import Todos from 'Features/Todo/views/TodosContainer';
-import { List } from 'immutable';
-import { Todo } from 'Models/Todo';
-import { connect } from 'react-redux';
-import { getAllTodos } from 'Features/Todo/redux/actionCreators';
+import TodosContainer from 'Features/Todo/views/TodosContainer';
 
-interface Props2 {
-  dispatch: any;
-}
-// tslint-disable-next-line
-const App: React.FC<Props2> = ({ dispatch }) => {
-  useEffect(() => {
-    const todo: Todo = {
-      id: '',
-      text: 'xoxo',
-      done: false,
-    };
-
-    const todos = List([todo]);
-    dispatch(getAllTodos(todos));
-  });
-
+const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
         <Image />
         <h1>Todo List App</h1>
-        <a
-          className={styles.link}
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
-      <Todos />
+      <TodosContainer />
     </div>
   );
 };
 
 const hotModule = hot(module)(App);
 
-export default connect()(hotModule);
+export default hotModule;

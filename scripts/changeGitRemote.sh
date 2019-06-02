@@ -2,7 +2,6 @@
 
 if [ "$NODE_ENV" == "production" ];
   then
-    node --print 'process.env.NODE_ENV'
     exit 0
 fi
 
