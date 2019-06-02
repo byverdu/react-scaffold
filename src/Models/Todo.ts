@@ -1,4 +1,5 @@
 import { Map } from 'immutable';
+import { VisibilityFilterEnum } from 'Models/Enums';
 
 export interface Todo {
   text: string;
@@ -8,10 +9,13 @@ export interface Todo {
 
 export interface TodoState {
   todos: Map<string, Todo>;
-  todosLength: number;
 }
 
 export interface SetTodoStatus {
   id: string;
   status: boolean;
+}
+
+export interface VisibilityFilterState {
+  activeFilter: VisibilityFilterEnum;
 }

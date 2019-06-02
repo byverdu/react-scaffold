@@ -2,6 +2,7 @@ import React from 'react';
 import { TodosPropsToState, TodosDispatchToProps } from './TodosContainer';
 import Todos from 'Features/Todo/Components/Todos';
 import AddTodo from 'Features/Todo/Components/AddTodo';
+import VisibilityFilter from 'Features/VisibilityFilter/views/VisibilityFilter';
 
 interface ContainerProps extends TodosPropsToState, TodosDispatchToProps {}
 
@@ -25,6 +26,7 @@ const TodosContainer: React.SFC<ContainerProps> = ({
     return (
       <section>
         <h3>{title}</h3>
+        {todosLength > 0 && <VisibilityFilter />}
         <Todos
           deleteTodo={deleteTodo}
           checkHandler={checkHandler}

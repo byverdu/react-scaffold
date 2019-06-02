@@ -8,6 +8,7 @@ import {
   setTodoStatus,
   deleteTodo
 } from 'Features/Todo/redux/actionCreators';
+import { filterTodos } from '../redux/selector';
 
 export interface TodosPropsToState {
   todos: Map<string, Todo>;
@@ -20,9 +21,9 @@ export interface TodosDispatchToProps {
   deleteTodo: (id: string) => void;
 }
 
-const mapPropsToState = ({ todos }: RootState): TodosPropsToState => ({
-  todos: todos.todos,
-  todosLength: todos.todosLength
+const mapPropsToState = (state: RootState): TodosPropsToState => ({
+  todos: filterTodos(state),
+  todosLength: state.todos.todos.size
 });
 
 const mapDispatchToProps = (dispatch): TodosDispatchToProps => ({

@@ -5,8 +5,7 @@ import * as Actions from 'Features/Todo/redux/constants';
 import mergeReducers from 'merge-reducers';
 
 const initialState: TodoState = {
-  todos: Map(),
-  todosLength: undefined
+  todos: Map()
 };
 
 const todoReducer = handleActions<TodoState, Todo>(
@@ -14,8 +13,8 @@ const todoReducer = handleActions<TodoState, Todo>(
     [Actions.ADD_TODO]: (state, { payload }): TodoState => {
       const todos = state.todos.set(payload.id, payload);
       return {
-        todos,
-        todosLength: todos.size
+        ...state,
+        todos
       };
     }
   },
@@ -30,8 +29,8 @@ const todosReducer = handleActions<TodoState, List<Todo>>(
         todos.set(todo.id, todo);
       });
       return {
-        todos,
-        todosLength: todos.size
+        ...state,
+        todos
       };
     }
   },
@@ -60,8 +59,8 @@ const stringReducer = handleActions<TodoState, string>(
     [Actions.DELETE_TODO]: (state, { payload }): TodoState => {
       const todos = state.todos.delete(payload);
       return {
-        todos,
-        todosLength: todos.size
+        ...state,
+        todos
       };
     }
   },
