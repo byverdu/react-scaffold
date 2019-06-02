@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { Todo } from 'Models/Todo';
 
 const uuidv4 = require('uuid/v4');
@@ -8,29 +8,43 @@ interface AddTodoProps {
 }
 
 const AddTodo: React.SFC<AddTodoProps> = ({ addTodo }) => {
-  const inputEl = useRef(null);
-  const todoHandler = (event: React.MouseEvent) => {
+  const [todoText, setTodoText] = useState('');
+  const inputElem = useRef<HTMLInputElement>(null);
+
+  const todoTextChangeHandler = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setTodoText((event.target as HTMLInputElement).value);
+  };
+  const todoSubmitHandler = (event: React.MouseEvent) => {
     event.preventDefault();
 
     const todo: Todo = {
-      text: inputEl.current.value,
+      text: todoText,
       done: false,
       id: uuidv4(),
     };
 
     addTodo(todo);
-    inputEl.current.value = '';
+    setTodoText('');
+    inputElem.current.value = '';
   };
 
   return (
     <section>
       <h2>Add a Todo</h2>
+      {todoText}
       <form noValidate>
-        <label htmlFor="add-todo-field">
-          Todo text
-          <input ref={inputEl} type="text" id="add-todo-field" />
-        </label>
-        <button onClick={todoHandler}>Submit</button>
+        <label htmlFor="add-todo-field">Todo text</label>
+        <input
+          ref={inputElem}
+          type="text"
+          id="add-todo-field"
+          onChange={todoTextChangeHandler}
+        />
+        <button onClick={todoSubmitHandler} disabled={todoText.length === 0}>
+          Submit
+        </button>
       </form>
     </section>
   );
