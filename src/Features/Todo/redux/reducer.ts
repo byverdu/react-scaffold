@@ -55,4 +55,22 @@ const statusReducer = handleActions<TodoState, SetTodoStatus>(
   initialState
 );
 
-export default mergeReducers(todoReducer, todosReducer, statusReducer);
+const stringReducer = handleActions<TodoState, string>(
+  {
+    [Actions.DELETE_TODO]: (state, { payload }): TodoState => {
+      const todos = state.todos.delete(payload);
+      return {
+        todos,
+        todosLength: todos.size
+      };
+    }
+  },
+  initialState
+);
+
+export default mergeReducers(
+  todoReducer,
+  todosReducer,
+  statusReducer,
+  stringReducer
+);

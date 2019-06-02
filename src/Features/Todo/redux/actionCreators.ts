@@ -8,3 +8,4 @@ export const getAllTodos = createAction<List<Todo>>(Actions.GET_ALL_TODOS);
 export const setTodoStatus = createAction<SetTodoStatus>(
   Actions.SET_TODO_STATUS
 );
+export const deleteTodo = createAction<string>(Actions.DELETE_TODO);

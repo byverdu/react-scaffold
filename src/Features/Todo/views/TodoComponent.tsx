@@ -9,19 +9,27 @@ const TodosContainer: React.SFC<ContainerProps> = ({
   todos,
   todosLength,
   addTodo,
-  checkHandler
+  checkHandler,
+  deleteTodo
 }) => {
   const renderTodos = () => {
     if (!todos) {
       return null;
     }
 
+    const title =
+      todosLength > 0
+        ? `Showing ${todosLength} todo tasks`
+        : 'No todo tasks to show';
+
     return (
       <section>
-        <h3>
-          Showings {todosLength} <code>todo</code> tasks
-        </h3>
-        <Todos checkHandler={checkHandler} todos={todos} />
+        <h3>{title}</h3>
+        <Todos
+          deleteTodo={deleteTodo}
+          checkHandler={checkHandler}
+          todos={todos}
+        />
       </section>
     );
   };
