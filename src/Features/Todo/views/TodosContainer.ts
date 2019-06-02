@@ -17,13 +17,13 @@ export interface TodosDispatchToProps {
 
 const mapPropsToState = ({ todos }: RootState): TodosPropsToState => ({
   todos: todos.todos,
-  todosLength: todos.todosLength,
+  todosLength: todos.todosLength
 });
 
 const mapDispatchToProps = (dispatch): TodosDispatchToProps => ({
   addTodo: (todo: Todo) => dispatch(addTodo(todo)),
   checkHandler: (id: string, isChecked: boolean) =>
-    dispatch(setTodoStatus({ id, status: isChecked })),
+    dispatch(setTodoStatus({ id, status: isChecked }))
 });
 
 export default connect<TodosPropsToState, TodosDispatchToProps>(

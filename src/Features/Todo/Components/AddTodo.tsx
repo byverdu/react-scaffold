@@ -22,7 +22,7 @@ const AddTodo: React.SFC<AddTodoProps> = ({ addTodo }) => {
     const todo: Todo = {
       text: todoText,
       done: false,
-      id: uuidv4(),
+      id: uuidv4()
     };
 
     addTodo(todo);

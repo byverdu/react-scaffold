@@ -1,7 +1,6 @@
 import Image from 'Components/Image';
 import React from 'react';
 import { hot } from 'react-hot-loader';
-import styles from 'Theme/App.module.scss';
 import 'Theme/App.scss';
 import TodosContainer from 'Features/Todo/views/TodosContainer';
 

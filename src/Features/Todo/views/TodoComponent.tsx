@@ -9,7 +9,7 @@ const TodosContainer: React.SFC<ContainerProps> = ({
   todos,
   todosLength,
   addTodo,
-  checkHandler,
+  checkHandler
 }) => {
   const renderTodos = () => {
     if (!todos) {

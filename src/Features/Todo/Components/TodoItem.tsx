@@ -8,7 +8,7 @@ interface TodoItemProps {
 
 const TodoItem: React.SFC<TodoItemProps> = ({
   todo: { text, done, id },
-  checkHandler,
+  checkHandler
 }) => {
   const [isChecked, setIsChecked] = useState(done);
 

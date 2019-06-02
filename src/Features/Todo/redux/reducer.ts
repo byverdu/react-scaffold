@@ -6,7 +6,7 @@ import mergeReducers from 'merge-reducers';
 
 const initialState: TodoState = {
   todos: undefined,
-  todosLength: undefined,
+  todosLength: undefined
 };
 
 const todoReducer = handleActions<TodoState, Todo>(
@@ -15,9 +15,9 @@ const todoReducer = handleActions<TodoState, Todo>(
       const todos = List(state.todos).push(payload);
       return {
         todos,
-        todosLength: todos.size,
+        todosLength: todos.size
       };
-    },
+    }
   },
   initialState
 );
@@ -27,9 +27,9 @@ const todosReducer = handleActions<TodoState, List<Todo>>(
     [Actions.GET_ALL_TODOS]: (state, { payload }): TodoState => {
       return {
         todos: payload,
-        todosLength: 9,
+        todosLength: 9
       };
-    },
+    }
   },
   initialState
 );
@@ -45,9 +45,9 @@ const statusReducer = handleActions<TodoState, SetTodoStatus>(
 
       return {
         ...state,
-        todos,
+        todos
       };
-    },
+    }
   },
   initialState
 );

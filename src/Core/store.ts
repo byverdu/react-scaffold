@@ -10,7 +10,7 @@ export function configureStore() {
   if (process.env.NODE_ENV === 'development') {
     const composeEnhancers = composeWithDevTools({
       trace: true,
-      traceLimit: 25,
+      traceLimit: 25
     });
     store = createStore(
       rootReducer,

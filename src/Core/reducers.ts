@@ -7,5 +7,5 @@ export interface RootState {
 }
 
 export default combineReducers<RootState>({
-  todos,
+  todos
 });
