@@ -1,4 +1,4 @@
-import { List } from 'immutable';
+import { Map } from 'immutable';
 
 export interface Todo {
   text: string;
@@ -7,7 +7,7 @@ export interface Todo {
 }
 
 export interface TodoState {
-  todos: List<Todo>;
+  todos: Map<string, Todo>;
   todosLength: number;
 }
 

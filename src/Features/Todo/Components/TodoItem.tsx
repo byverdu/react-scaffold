@@ -14,7 +14,8 @@ const TodoItem: React.SFC<TodoItemProps> = ({
 
   const onCheckHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { checked } = event.target;
-    checkHandler(id, checked);
+    const itemId = event.target.dataset['id'];
+    checkHandler(itemId, checked);
     setIsChecked(checked);
   };
 
@@ -23,7 +24,15 @@ const TodoItem: React.SFC<TodoItemProps> = ({
       className={isChecked ? 'task-done' : 'task-todo'}
       style={{ textDecoration: isChecked ? 'line-through' : 'none' }}
     >
-      <input type="checkbox" onChange={onCheckHandler} /> {text}
+      <label htmlFor={`list-item-${id}`}>
+        <input
+          data-id={id}
+          id={`list-item-${id}`}
+          type="checkbox"
+          onChange={onCheckHandler}
+        />
+        {text}
+      </label>
     </li>
   );
 };

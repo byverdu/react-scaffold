@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import Todos from 'Features/Todo/views/TodoComponent';
-import { List } from 'immutable';
+import { Map } from 'immutable';
 import { Todo } from 'Models/Todo';
 import { RootState } from 'Core/reducers';
 import { addTodo, setTodoStatus } from 'Features/Todo/redux/actionCreators';
 
 export interface TodosPropsToState {
-  todos: List<Todo>;
+  todos: Map<string, Todo>;
   todosLength: number;
 }
 
