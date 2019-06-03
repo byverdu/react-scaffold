@@ -1,7 +1,7 @@
 import { Todo } from '../src/Models/Todo';
 const { promisify } = require('util');
-const path = require("path");
-const fs = require("fs");
+const path = require('path');
+const fs = require('fs');
 
 interface Utils {
   getContentForRoutes: () => Promise<any>;
@@ -30,9 +30,7 @@ export const utils: Utils = {
     return todos;
   },
   deleteTodo: (todos: { [key: string]: Todo; }, id: string) => {
-    console.log(todos, id, 'before');
     delete todos[id];
-    console.log(todos, 'after');
   
     return todos;
   },
@@ -49,8 +47,8 @@ export const utils: Utils = {
         const fileName = mapRoutesToJson[route];
 
         try {
-          const fileContent = await readFileAsync(getPathToJsonMock(fileName), { encoding: 'utf8' })
-          paths[route] = JSON.parse(fileContent)
+          const fileContent = await readFileAsync(getPathToJsonMock(fileName), { encoding: 'utf8' });
+          paths[route] = JSON.parse(fileContent);
           count += 1;
           if (count === routes.length) {
             resolve(paths);
@@ -59,6 +57,6 @@ export const utils: Utils = {
           reject(error);
         }
       });
-    })
+    });
   }
-}
+};
