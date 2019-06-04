@@ -63,7 +63,6 @@
     "build": "concurrently \"yarn build-css\" \"react-app-rewired build\"",
     "test": "react-app-rewired test --env=jsdom --coverage --watchAll=false",
     "test-watch": "react-app-rewired test --env=jsdom",
-    "test-push": "yarn test test --env=jsdom --coverage --watchAll=false",
     "lint": "./node_modules/.bin/eslint . --ext .ts,.tsx",
     "prettier": "./node_modules/.bin/prettier \"src/**/*\" --write",
     "change-git-remote": "./scripts/changeGitRemote.sh"
@@ -82,7 +81,8 @@
       "!src/**/*.d.ts",
       "!src/setupTests.ts",
       "!src/serviceWorker.ts",
-      "!src/index.tsx"
+      "!src/index.tsx",
+      "!src/Models/**"
     ]
   },
   "eslintConfig": {
@@ -98,7 +98,7 @@
     "hooks": {
       "pre-commit": "lint-staged",
       "post-commit": "npm run lint",
-      "pre-push": "CI=true && npm run lint && npm run test-push && npm run build"
+      "pre-push": "CI=true && npm run lint && npm run test && npm run build"
     }
   },
   "browserslist": {
