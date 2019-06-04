@@ -1,13 +1,13 @@
-import { Todo } from '../src/Models/Todo';
+import { Todo, MapSignature } from '../src/Models/Todo';
 const { promisify } = require('util');
 const path = require('path');
 const fs = require('fs');
 
 interface Utils {
   getContentForRoutes: () => Promise<any>;
-  addTodo: (todos: { [key: string]: Todo; }, id: string, todo: Todo) => { [key: string]: Todo; };
-  updateTodo: (todos: { [key: string]: Todo; }, id: string, status: boolean) => { [key: string]: Todo; };
-  deleteTodo: (todos: { [key: string]: Todo; }, id: string) => { [key: string]: Todo; };
+  addTodo: (todos: MapSignature, id: string, todo: Todo) => MapSignature;
+  updateTodo: (todos: MapSignature, id: string, status: boolean) => MapSignature;
+  deleteTodo: (todos: MapSignature, id: string) => MapSignature;
 }
 
 const readFileAsync = promisify(fs.readFile);
@@ -19,17 +19,17 @@ const getPathToJsonMock = fileName => {
 };
 
 export const utils: Utils = {
-  addTodo: (todos: { [key: string]: Todo; }, id: string, todo: Todo) => {
+  addTodo: (todos: MapSignature, id: string, todo: Todo) => {
     todos[id] = todo;
   
     return todos;
   },
-  updateTodo: (todos: { [key: string]: Todo; }, id: string, status: boolean) => {
+  updateTodo: (todos: MapSignature, id: string, status: boolean) => {
     todos[id].done = status;
   
     return todos;
   },
-  deleteTodo: (todos: { [key: string]: Todo; }, id: string) => {
+  deleteTodo: (todos: MapSignature, id: string) => {
     delete todos[id];
   
     return todos;

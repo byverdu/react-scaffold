@@ -1,10 +1,19 @@
 import Image from 'Components/Image';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { hot } from 'react-hot-loader';
 import 'Theme/App.scss';
 import TodosContainer from 'Features/Todo/views/TodosContainer';
+import { fetchTodos } from 'Features/Todo/redux/actionCreators';
+import { connect } from 'react-redux';
 
-const App: React.FC = () => {
+interface AppProps {
+  fetchTodosApi: any;
+}
+
+const App: React.FC<AppProps> = ({ fetchTodosApi }) => {
+  useEffect(() => {
+    fetchTodosApi();
+  }, []);
   return (
     <div className="App">
       <header className="App-header">
@@ -16,6 +25,13 @@ const App: React.FC = () => {
   );
 };
 
+const mapDispatchToProps = (dispatch) => ({
+  fetchTodosApi: () => dispatch(fetchTodos())
+});
+
 const hotModule = hot(module)(App);
 
-export default hotModule;
+export default connect(
+  null,
+  mapDispatchToProps
+)(hotModule);

@@ -2,9 +2,10 @@ import rootReducer, { RootState } from 'Core/reducers';
 import { applyMiddleware, createStore, Store } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
+import * as api from 'Helpers/api';
 
 export function configureStore() {
-  const middleware = applyMiddleware(thunk);
+  const middleware = applyMiddleware(thunk.withExtraArgument(api));
   let store;
 
   if (process.env.NODE_ENV === 'development') {

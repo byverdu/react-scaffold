@@ -1,6 +1,10 @@
 import { Map } from 'immutable';
 import { VisibilityFilterEnum } from 'Models/Enums';
 
+export interface MapSignature {
+  [key: string]: Todo;
+}
+
 export interface Todo {
   text: string;
   id: string;

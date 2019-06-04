@@ -1,1 +1,12 @@
-{}
+{
+    "12345": {
+        "id": 12345,
+        "text": "oh yeah! 👓",
+        "done": false
+    },
+    "6789": {
+        "id": 6789,
+        "text": "invasion! 👾",
+        "done": false
+    }
+}
