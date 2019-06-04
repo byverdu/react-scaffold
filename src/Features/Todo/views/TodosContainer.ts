@@ -4,8 +4,8 @@ import { Map } from 'immutable';
 import { Todo } from 'Models/Todo';
 import { RootState } from 'Core/reducers';
 import {
-  addNewTodo,
-  updateTodo,
+  apiAddTodo,
+  apiUpdateTodo,
   apiDeleteTodo
 } from 'Features/Todo/redux/actionCreators';
 import { filterTodos } from '../redux/selector';
@@ -27,9 +27,9 @@ const mapPropsToState = (state: RootState): TodosPropsToState => ({
 });
 
 const mapDispatchToProps = (dispatch): TodosDispatchToProps => ({
-  addTodo: (todo: Todo) => dispatch(addNewTodo(todo)),
+  addTodo: (todo: Todo) => dispatch(apiAddTodo(todo)),
   checkHandler: (todoId: string, status: boolean) =>
-    dispatch(updateTodo(todoId, status)),
+    dispatch(apiUpdateTodo(todoId, status)),
   deleteTodo: (id: string) => dispatch(apiDeleteTodo(id))
 });
 

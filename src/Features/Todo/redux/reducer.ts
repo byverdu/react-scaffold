@@ -1,4 +1,4 @@
-import { TodoState, Todo, SetTodoStatus, MapSignature } from 'Models/Todo';
+import { TodoState, Todo, UpdateTodoPayload, MapSignature } from 'Models/Todo';
 import { Map } from 'immutable';
 import { handleActions } from 'redux-actions';
 import * as Actions from 'Features/Todo/redux/constants';
@@ -30,7 +30,7 @@ const todosReducer = handleActions<TodoState, MapSignature>(
   initialState
 );
 
-const statusReducer = handleActions<TodoState, SetTodoStatus>(
+const statusReducer = handleActions<TodoState, UpdateTodoPayload>(
   {
     [Actions.SET_TODO_STATUS]: (state, { payload }): TodoState => {
       const todos = state.todos.update(payload.todoId, (item) => {

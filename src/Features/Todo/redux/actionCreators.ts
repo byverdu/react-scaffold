@@ -1,5 +1,5 @@
 import { createAction } from 'redux-actions';
-import { Todo, SetTodoStatus, MapSignature } from 'Models/Todo';
+import { Todo, UpdateTodoPayload, MapSignature } from 'Models/Todo';
 import * as Actions from 'Features/Todo/redux/constants';
 import { ThunkAction } from 'redux-thunk';
 import { RootState } from 'Core/reducers';
@@ -8,13 +8,13 @@ import { API } from 'Models/Api';
 import { ApiRoutes } from 'Models/Enums';
 
 export const addTodo = createAction<Todo>(Actions.ADD_TODO);
-export const getAllTodos = createAction<MapSignature>(Actions.GET_ALL_TODOS);
-export const setTodoStatus = createAction<SetTodoStatus>(
+export const getTodos = createAction<MapSignature>(Actions.GET_ALL_TODOS);
+export const updateTodo = createAction<UpdateTodoPayload>(
   Actions.SET_TODO_STATUS
 );
 export const deleteTodo = createAction<string>(Actions.DELETE_TODO);
 
-export const fetchTodos = (): ThunkAction<
+export const apiGetTodos = (): ThunkAction<
   Promise<Action>,
   RootState,
   null,
@@ -27,14 +27,14 @@ export const fetchTodos = (): ThunkAction<
   ): Promise<any> => {
     try {
       const todosResponse = await api.get(ApiRoutes.getTodos);
-      dispatch(getAllTodos(todosResponse));
+      dispatch(getTodos(todosResponse));
     } catch (error) {
       throw Error(error);
     }
   };
 };
 
-export const addNewTodo = (
+export const apiAddTodo = (
   todo: Todo
 ): ThunkAction<Promise<Action>, RootState, null, null> => {
   return async (
@@ -55,7 +55,7 @@ export const addNewTodo = (
   };
 };
 
-export const updateTodo = (
+export const apiUpdateTodo = (
   todoId: string,
   status: boolean
 ): ThunkAction<Promise<Action>, RootState, null, null> => {
@@ -70,7 +70,7 @@ export const updateTodo = (
         status
       };
       await api.patch(ApiRoutes.updateTodo, payloadRequest);
-      dispatch(setTodoStatus(payloadRequest));
+      dispatch(updateTodo(payloadRequest));
     } catch (error) {
       throw Error(error);
     }

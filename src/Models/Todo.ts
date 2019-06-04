@@ -15,7 +15,7 @@ export interface TodoState {
   todos: Map<string, Todo>;
 }
 
-export interface SetTodoStatus {
+export interface UpdateTodoPayload {
   todoId: string;
   status: boolean;
 }

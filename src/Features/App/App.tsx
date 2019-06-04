@@ -3,17 +3,17 @@ import React, { useEffect } from 'react';
 import { hot } from 'react-hot-loader';
 import 'Theme/App.scss';
 import TodosContainer from 'Features/Todo/views/TodosContainer';
-import { fetchTodos } from 'Features/Todo/redux/actionCreators';
+import { apiGetTodos } from 'Features/Todo/redux/actionCreators';
 import { connect } from 'react-redux';
 
 interface AppProps {
-  fetchTodosApi: any;
+  getTodos: any;
 }
 
-const App: React.FC<AppProps> = ({ fetchTodosApi }) => {
+const App: React.FC<AppProps> = ({ getTodos }) => {
   useEffect(() => {
-    fetchTodosApi();
-  }, []);
+    getTodos();
+  });
   return (
     <div className="App">
       <header className="App-header">
@@ -26,7 +26,7 @@ const App: React.FC<AppProps> = ({ fetchTodosApi }) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchTodosApi: () => dispatch(fetchTodos())
+  getTodos: () => dispatch(apiGetTodos())
 });
 
 const hotModule = hot(module)(App);
