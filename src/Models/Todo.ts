@@ -16,7 +16,7 @@ export interface TodoState {
 }
 
 export interface SetTodoStatus {
-  id: string;
+  todoId: string;
   status: boolean;
 }
 

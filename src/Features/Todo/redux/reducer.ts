@@ -33,7 +33,7 @@ const todosReducer = handleActions<TodoState, MapSignature>(
 const statusReducer = handleActions<TodoState, SetTodoStatus>(
   {
     [Actions.SET_TODO_STATUS]: (state, { payload }): TodoState => {
-      const todos = state.todos.update(payload.id, (item) => {
+      const todos = state.todos.update(payload.todoId, (item) => {
         item.done = payload.status;
         return item;
       });

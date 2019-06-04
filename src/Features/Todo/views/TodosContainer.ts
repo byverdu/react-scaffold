@@ -5,7 +5,7 @@ import { Todo } from 'Models/Todo';
 import { RootState } from 'Core/reducers';
 import {
   addNewTodo,
-  setTodoStatus,
+  updateTodo,
   deleteTodo
 } from 'Features/Todo/redux/actionCreators';
 import { filterTodos } from '../redux/selector';
@@ -17,7 +17,7 @@ export interface TodosPropsToState {
 
 export interface TodosDispatchToProps {
   addTodo: (todo: Todo) => void;
-  checkHandler: (id: string, isChecked: boolean) => void;
+  checkHandler: (todoId: string, status: boolean) => void;
   deleteTodo: (id: string) => void;
 }
 
@@ -28,8 +28,8 @@ const mapPropsToState = (state: RootState): TodosPropsToState => ({
 
 const mapDispatchToProps = (dispatch): TodosDispatchToProps => ({
   addTodo: (todo: Todo) => dispatch(addNewTodo(todo)),
-  checkHandler: (id: string, isChecked: boolean) =>
-    dispatch(setTodoStatus({ id, status: isChecked })),
+  checkHandler: (todoId: string, status: boolean) =>
+    dispatch(updateTodo(todoId, status)),
   deleteTodo: (id: string) => dispatch(deleteTodo(id))
 });
 

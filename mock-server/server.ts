@@ -47,9 +47,9 @@ function createApp(routes) {
   });
 
   server.patch('/todos/update', (req: Request, res: Response) => {
-    const { id, status } = req.body;
+    const { todoId, status } = req.body;
     const todos = db.get('todos')
-      .updateTodo(id, status)
+      .updateTodo(todoId, status)
       .value();
     
     res.status(200);

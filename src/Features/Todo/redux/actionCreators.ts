@@ -54,3 +54,25 @@ export const addNewTodo = (
     }
   };
 };
+
+export const updateTodo = (
+  todoId: string,
+  status: boolean
+): ThunkAction<Promise<Action>, RootState, null, null> => {
+  return async (
+    dispatch: Dispatch<Action<string>>,
+    getState: () => RootState,
+    api: API
+  ): Promise<any> => {
+    try {
+      const payloadRequest = {
+        todoId,
+        status
+      };
+      await api.patch(ApiRoutes.updateTodo, payloadRequest);
+      dispatch(setTodoStatus(payloadRequest));
+    } catch (error) {
+      throw Error(error);
+    }
+  };
+};
