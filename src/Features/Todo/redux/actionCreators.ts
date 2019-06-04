@@ -33,3 +33,24 @@ export const fetchTodos = (): ThunkAction<
     }
   };
 };
+
+export const addNewTodo = (
+  todo: Todo
+): ThunkAction<Promise<Action>, RootState, null, null> => {
+  return async (
+    dispatch: Dispatch<Action<string>>,
+    getState: () => RootState,
+    api: API
+  ): Promise<any> => {
+    try {
+      const payloadRequest = {
+        todoId: todo.id,
+        todo
+      };
+      await api.post(ApiRoutes.addTodo, payloadRequest);
+      dispatch(addTodo(todo));
+    } catch (error) {
+      throw Error(error);
+    }
+  };
+};

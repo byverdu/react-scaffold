@@ -34,9 +34,9 @@ function createApp(routes) {
   });
 
   server.post('/todos/add', (req: Request, res: Response) => {
-    const { id, todo } = req.body;
+    const { todoId, todo } = req.body;
     const todos = db.get('todos')
-      .addTodo(id, todo)
+      .addTodo(todoId, todo)
       .value();
     
     res.status(200);
