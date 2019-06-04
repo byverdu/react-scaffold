@@ -35,7 +35,7 @@ const TodoItem: React.SFC<TodoItemProps> = ({
     >
       <label htmlFor={`list-item-${id}`} data-id={id}>
         <input
-          checked={done}
+          checked={isChecked}
           id={`list-item-${id}`}
           type="checkbox"
           onChange={onCheckHandler}

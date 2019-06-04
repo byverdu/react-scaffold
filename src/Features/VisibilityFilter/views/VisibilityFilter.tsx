@@ -9,7 +9,7 @@ export interface FilterMapStateToProps {
 }
 
 export interface FilterDispatchToProps {
-  setActiveFilter: (filter: VisibilityFilterEnum) => void;
+  filterHandler: (filter: VisibilityFilterEnum) => void;
 }
 
 interface ComponentProps extends FilterMapStateToProps, FilterDispatchToProps {}
@@ -21,13 +21,13 @@ const mapStateToProps = ({
 });
 
 const mapDispatchToProps = (dispatch): FilterDispatchToProps => ({
-  setActiveFilter: (filter: VisibilityFilterEnum) =>
+  filterHandler: (filter: VisibilityFilterEnum) =>
     dispatch(setActiveFilter(filter))
 });
 
 const VisibilityFilter: React.SFC<ComponentProps> = ({
   activeFilter,
-  setActiveFilter
+  filterHandler
 }) => {
   const filtersData = [
     {
@@ -51,8 +51,8 @@ const VisibilityFilter: React.SFC<ComponentProps> = ({
         id={item.type}
         value={item.type}
         type="radio"
-        onChange={(e) => {
-          setActiveFilter(item.type);
+        onChange={() => {
+          filterHandler(item.type);
         }}
       />
     </label>
