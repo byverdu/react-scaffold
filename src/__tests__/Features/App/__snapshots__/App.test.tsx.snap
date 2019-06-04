@@ -1,28 +1,199 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<App /> should create a snapshot 1`] = `
-<div
-  className="App"
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
 >
-  <header
-    className="App-header"
-  >
-    <Image />
-    <p>
-      Edit 
-      <code>
-        xoxo
-      </code>
-       and save to reload.
-    </p>
-    <a
-      className="link"
-      href="https://reactjs.org"
-      rel="noopener noreferrer"
-      target="_blank"
+  <Connect(App)>
+    <App
+      getTodos={[Function]}
     >
-      Learn React
-    </a>
-  </header>
-</div>
+      <div
+        className="App"
+      >
+        <header
+          className="App-header"
+        >
+          <Image>
+            <img
+              alt="logo"
+              className="App-logo"
+              src="logo.svg"
+            />
+          </Image>
+          <h1>
+            Todo List App
+          </h1>
+        </header>
+        <Connect(TodosContainer)>
+          <TodosContainer
+            addTodo={[Function]}
+            checkHandler={[Function]}
+            deleteTodo={[Function]}
+            todos={
+              Immutable.Map {
+                "1234": Object {
+                  "done": false,
+                  "id": "1234",
+                  "text": "todo task",
+                },
+              }
+            }
+            todosLength={1}
+          >
+            <AddTodo
+              addTodo={[Function]}
+            >
+              <section>
+                <h2>
+                  Add a Todo
+                </h2>
+                <form
+                  noValidate={true}
+                >
+                  <label
+                    htmlFor="add-todo-field"
+                  >
+                    Todo text
+                  </label>
+                  <input
+                    id="add-todo-field"
+                    onChange={[Function]}
+                    type="text"
+                  />
+                  <button
+                    disabled={true}
+                    onClick={[Function]}
+                  >
+                    Submit
+                  </button>
+                </form>
+              </section>
+            </AddTodo>
+            <section>
+              <h3>
+                Showing 1 todo tasks
+              </h3>
+              <Connect(VisibilityFilter)>
+                <VisibilityFilter
+                  activeFilter="SHOW_ALL"
+                  filterHandler={[Function]}
+                >
+                  <section>
+                    <label
+                      htmlFor="SHOW_ALL"
+                      key="SHOW_ALL"
+                    >
+                      Show All
+                      <input
+                        checked={true}
+                        id="SHOW_ALL"
+                        name="filter-type"
+                        onChange={[Function]}
+                        type="radio"
+                        value="SHOW_ALL"
+                      />
+                    </label>
+                    <label
+                      htmlFor="SHOW_DONE"
+                      key="SHOW_DONE"
+                    >
+                      Show Done
+                      <input
+                        checked={false}
+                        id="SHOW_DONE"
+                        name="filter-type"
+                        onChange={[Function]}
+                        type="radio"
+                        value="SHOW_DONE"
+                      />
+                    </label>
+                    <label
+                      htmlFor="SHOW_TODO"
+                      key="SHOW_TODO"
+                    >
+                      Show Todo
+                      <input
+                        checked={false}
+                        id="SHOW_TODO"
+                        name="filter-type"
+                        onChange={[Function]}
+                        type="radio"
+                        value="SHOW_TODO"
+                      />
+                    </label>
+                  </section>
+                </VisibilityFilter>
+              </Connect(VisibilityFilter)>
+              <Todos
+                checkHandler={[Function]}
+                deleteTodo={[Function]}
+                todos={
+                  Immutable.Map {
+                    "1234": Object {
+                      "done": false,
+                      "id": "1234",
+                      "text": "todo task",
+                    },
+                  }
+                }
+              >
+                <ul>
+                  <TodoItem
+                    checkHandler={[Function]}
+                    deleteTodo={[Function]}
+                    key="1234"
+                    todo={
+                      Object {
+                        "done": false,
+                        "id": "1234",
+                        "text": "todo task",
+                      }
+                    }
+                  >
+                    <li
+                      className="task-todo"
+                      style={
+                        Object {
+                          "textDecoration": "none",
+                        }
+                      }
+                    >
+                      <label
+                        data-id="1234"
+                        htmlFor="list-item-1234"
+                      >
+                        <input
+                          checked={false}
+                          id="list-item-1234"
+                          onChange={[Function]}
+                          type="checkbox"
+                        />
+                        todo task
+                      </label>
+                      <button
+                        onClick={[Function]}
+                      >
+                        Delete
+                      </button>
+                    </li>
+                  </TodoItem>
+                </ul>
+              </Todos>
+            </section>
+          </TodosContainer>
+        </Connect(TodosContainer)>
+      </div>
+    </App>
+  </Connect(App)>
+</Provider>
 `;
