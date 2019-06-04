@@ -1,5 +1,5 @@
 import axios, { AxiosResponse, AxiosError } from 'axios';
-import { HTTPVerbs } from 'Models/Api';
+import { HTTPVerbs } from 'Models/Enums';
 
 const sendHttpRequest = (url: string, method: HTTPVerbs, data?: any) =>
   axios
@@ -25,4 +25,10 @@ const patch = async (url: string, data): Promise<any> => {
   return res;
 };
 
-export { get, post, patch };
+const deleteItem = async (url: string): Promise<any> => {
+  const res = await sendHttpRequest(url, HTTPVerbs.delete);
+
+  return res;
+};
+
+export { get, post, patch, deleteItem };

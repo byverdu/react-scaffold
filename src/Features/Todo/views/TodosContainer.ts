@@ -6,7 +6,7 @@ import { RootState } from 'Core/reducers';
 import {
   addNewTodo,
   updateTodo,
-  deleteTodo
+  apiDeleteTodo
 } from 'Features/Todo/redux/actionCreators';
 import { filterTodos } from '../redux/selector';
 
@@ -30,7 +30,7 @@ const mapDispatchToProps = (dispatch): TodosDispatchToProps => ({
   addTodo: (todo: Todo) => dispatch(addNewTodo(todo)),
   checkHandler: (todoId: string, status: boolean) =>
     dispatch(updateTodo(todoId, status)),
-  deleteTodo: (id: string) => dispatch(deleteTodo(id))
+  deleteTodo: (id: string) => dispatch(apiDeleteTodo(id))
 });
 
 export default connect<TodosPropsToState, TodosDispatchToProps>(

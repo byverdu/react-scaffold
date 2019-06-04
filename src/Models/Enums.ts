@@ -8,5 +8,12 @@ export enum ApiRoutes {
   getTodos = '/todos',
   addTodo = '/todos/add',
   updateTodo = '/todos/update',
-  deleteTodo = '/todos/delete/:todoId'
+  deleteTodo = '/todos/delete'
+}
+
+export enum HTTPVerbs {
+  get = 'GET',
+  post = 'POST',
+  patch = 'PATCH',
+  delete = 'DELETE'
 }

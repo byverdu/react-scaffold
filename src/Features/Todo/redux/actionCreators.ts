@@ -76,3 +76,20 @@ export const updateTodo = (
     }
   };
 };
+
+export const apiDeleteTodo = (
+  todoId: string
+): ThunkAction<Promise<Action>, RootState, null, null> => {
+  return async (
+    dispatch: Dispatch<Action<string>>,
+    getState: () => RootState,
+    api: API
+  ): Promise<any> => {
+    try {
+      await api.deleteItem(`${ApiRoutes.deleteTodo}/${todoId}`);
+      dispatch(deleteTodo(todoId));
+    } catch (error) {
+      throw Error(error);
+    }
+  };
+};

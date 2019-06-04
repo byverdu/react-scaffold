@@ -57,6 +57,7 @@
     "dev-server": "./node_modules/.bin/ts-node --skip-project  ./mock-server/server.ts",
     "dev-server-watch": "nodemon --exec ./node_modules/.bin/ts-node --skip-project  ./mock-server/server.ts",
     "dev": "concurrently \"yarn start\" \"yarn dev-server\"",
+    "dev-watch": "concurrently \"yarn start\" \"yarn dev-server-watch\"",
     "start": "react-app-rewired start",
     "build-css": "node-sass-chokidar src/ -o src/",
     "build": "concurrently \"yarn build-css\" \"react-app-rewired build\"",
