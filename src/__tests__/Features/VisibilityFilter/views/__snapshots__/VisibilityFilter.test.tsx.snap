@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> should create a snapshot 1`] = `undefined`;
+
+exports[`<VisibilityFilter /> should create a snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(VisibilityFilter)>
+    <VisibilityFilter
+      activeFilter="SHOW_ALL"
+      filterHandler={[Function]}
+    >
+      <section>
+        <label
+          htmlFor="SHOW_ALL"
+          key="SHOW_ALL"
+        >
+          Show All
+          <input
+            checked={true}
+            id="SHOW_ALL"
+            name="filter-type"
+            onChange={[Function]}
+            type="radio"
+            value="SHOW_ALL"
+          />
+        </label>
+        <label
+          htmlFor="SHOW_DONE"
+          key="SHOW_DONE"
+        >
+          Show Done
+          <input
+            checked={false}
+            id="SHOW_DONE"
+            name="filter-type"
+            onChange={[Function]}
+            type="radio"
+            value="SHOW_DONE"
+          />
+        </label>
+        <label
+          htmlFor="SHOW_TODO"
+          key="SHOW_TODO"
+        >
+          Show Todo
+          <input
+            checked={false}
+            id="SHOW_TODO"
+            name="filter-type"
+            onChange={[Function]}
+            type="radio"
+            value="SHOW_TODO"
+          />
+        </label>
+      </section>
+    </VisibilityFilter>
+  </Connect(VisibilityFilter)>
+</Provider>
+`;

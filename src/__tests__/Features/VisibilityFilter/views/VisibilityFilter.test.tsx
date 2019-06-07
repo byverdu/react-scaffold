@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from 'Features/App/App';
+import VisibilityFilter from 'Features/VisibilityFilter/views/VisibilityFilter';
 import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import rootState from '__fixtures__/rootState';
@@ -12,11 +12,11 @@ const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 const store = mockStore(rootState);
 
-describe('<App />', () => {
+describe('<VisibilityFilter />', () => {
   let wrapper;
   const component = () => (
     <Provider store={store}>
-      <App />
+      <VisibilityFilter />
     </Provider>
   );
 
@@ -34,7 +34,11 @@ describe('<App />', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
-  it('should render a TodosContainer', () => {
-    expect(wrapper.find('TodosContainer')).toHaveLength(1);
+  it('should render 3 inputs', () => {
+    expect(wrapper.find('input[type="radio"]')).toHaveLength(3);
+  });
+
+  it('SHOW_ALL input should be checked by default', () => {
+    expect(wrapper.find('input[id="SHOW_ALL"]').props().checked).toEqual(true);
   });
 });
