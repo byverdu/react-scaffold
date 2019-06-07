@@ -9,9 +9,7 @@ import { ApiRoutes } from 'Models/Enums';
 
 export const addTodo = createAction<Todo>(Actions.ADD_TODO);
 export const getTodos = createAction<MapSignature>(Actions.GET_ALL_TODOS);
-export const updateTodo = createAction<UpdateTodoPayload>(
-  Actions.SET_TODO_STATUS
-);
+export const updateTodo = createAction<UpdateTodoPayload>(Actions.UPDATE_TODO);
 export const deleteTodo = createAction<string>(Actions.DELETE_TODO);
 
 export const apiGetTodos = (): ThunkAction<

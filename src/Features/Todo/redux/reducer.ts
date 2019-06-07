@@ -4,7 +4,7 @@ import { handleActions } from 'redux-actions';
 import * as Actions from 'Features/Todo/redux/constants';
 import mergeReducers from 'merge-reducers';
 
-const initialState: TodoState = {
+export const initialState: TodoState = {
   todos: Map()
 };
 
@@ -32,7 +32,7 @@ const todosReducer = handleActions<TodoState, MapSignature>(
 
 const statusReducer = handleActions<TodoState, UpdateTodoPayload>(
   {
-    [Actions.SET_TODO_STATUS]: (state, { payload }): TodoState => {
+    [Actions.UPDATE_TODO]: (state, { payload }): TodoState => {
       const todos = state.todos.update(payload.todoId, (item) => {
         item.done = payload.status;
         return item;
