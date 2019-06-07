@@ -1,8 +1,8 @@
 import visibilityFilter, {
-  initialState,
-  SET_ACTIVE_FILTER
+  initialState
 } from 'Features/VisibilityFilter/redux';
 import { VisibilityFilterEnum } from 'Models/Enums';
+import { mockedPayloads } from '__fixtures__/reducer';
 
 describe('visibilityFilter reducer', () => {
   it('should return the initialState by default', () => {
@@ -13,10 +13,7 @@ describe('visibilityFilter reducer', () => {
 
   it('should set activeFilter state', () => {
     expect(
-      visibilityFilter(initialState, {
-        type: SET_ACTIVE_FILTER,
-        payload: VisibilityFilterEnum.SHOW_DONE
-      })
+      visibilityFilter(initialState, mockedPayloads.setFilterPayload)
     ).toEqual({ activeFilter: VisibilityFilterEnum.SHOW_DONE });
   });
 });
