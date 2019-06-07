@@ -17,3 +17,9 @@ export enum HTTPVerbs {
   patch = 'PATCH',
   delete = 'DELETE'
 }
+
+export enum LoggerTypes {
+  success = 'success',
+  error = 'error',
+  empty = ''
+}

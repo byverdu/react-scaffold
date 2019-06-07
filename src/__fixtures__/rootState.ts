@@ -1,4 +1,5 @@
 import { TodoState, VisibilityFilterState } from 'Models/Todo';
+import { LoggerState } from 'Models/Logger';
 import { RootState } from 'Core/reducers';
 import { VisibilityFilterEnum } from 'Models/Enums';
 import { Map } from 'immutable';
@@ -12,9 +13,16 @@ const visibilityFilter: VisibilityFilterState = {
   activeFilter: VisibilityFilterEnum.SHOW_ALL
 };
 
+export const logger: LoggerState = {
+  type: undefined,
+  message: '',
+  isVisible: false
+};
+
 const rootState: RootState = {
   todos,
-  visibilityFilter
+  visibilityFilter,
+  logger
 };
 
 export default rootState;

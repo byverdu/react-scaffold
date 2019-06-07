@@ -1,7 +1,8 @@
 import * as TodoActions from 'Features/Todo/redux/constants';
 import { SET_ACTIVE_FILTER } from 'Features/VisibilityFilter/redux';
-import { VisibilityFilterEnum } from 'Models/Enums';
+import { VisibilityFilterEnum, LoggerTypes } from 'Models/Enums';
 import { Map } from 'immutable';
+import { TOGGLE_LOGGER } from 'Features/Logger/redux';
 
 const MOCKED_TODO_ID = '12345';
 const mockedData = require('../../data/todos.json');
@@ -39,6 +40,14 @@ const mockedPayloads = {
   deleteTodoPayload: {
     type: TodoActions.DELETE_TODO,
     payload: MOCKED_TODO_ID
+  },
+  toggleLoggerPayload: {
+    type: TOGGLE_LOGGER,
+    payload: {
+      type: LoggerTypes.success,
+      message: 'Api fetched',
+      isVisible: true
+    }
   }
 };
 
