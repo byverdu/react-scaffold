@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Todos /> should create a snapshot 1`] = `
+<Todos
+  checkHandler={[MockFunction]}
+  deleteTodo={[MockFunction]}
+  todos={
+    Immutable.Map {
+      "6789": Object {
+        "done": false,
+        "id": 6789,
+        "text": "invasion! 👾",
+      },
+      "12345": Object {
+        "done": false,
+        "id": 12345,
+        "text": "oh yeah! 👓",
+      },
+    }
+  }
+>
+  <ul>
+    <TodoItem
+      checkHandler={[MockFunction]}
+      deleteTodo={[MockFunction]}
+      key="6789"
+      todo={
+        Object {
+          "done": false,
+          "id": 6789,
+          "text": "invasion! 👾",
+        }
+      }
+    >
+      <li
+        className="task-todo"
+        style={
+          Object {
+            "textDecoration": "none",
+          }
+        }
+      >
+        <label
+          data-id={6789}
+          htmlFor="list-item-6789"
+        >
+          <input
+            checked={false}
+            id="list-item-6789"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          invasion! 👾
+        </label>
+        <button
+          onClick={[Function]}
+        >
+          Delete
+        </button>
+      </li>
+    </TodoItem>
+    <TodoItem
+      checkHandler={[MockFunction]}
+      deleteTodo={[MockFunction]}
+      key="12345"
+      todo={
+        Object {
+          "done": false,
+          "id": 12345,
+          "text": "oh yeah! 👓",
+        }
+      }
+    >
+      <li
+        className="task-todo"
+        style={
+          Object {
+            "textDecoration": "none",
+          }
+        }
+      >
+        <label
+          data-id={12345}
+          htmlFor="list-item-12345"
+        >
+          <input
+            checked={false}
+            id="list-item-12345"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          oh yeah! 👓
+        </label>
+        <button
+          onClick={[Function]}
+        >
+          Delete
+        </button>
+      </li>
+    </TodoItem>
+  </ul>
+</Todos>
+`;
