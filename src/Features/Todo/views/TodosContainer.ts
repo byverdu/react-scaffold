@@ -8,7 +8,7 @@ import {
   apiUpdateTodo,
   apiDeleteTodo
 } from 'Features/Todo/redux/actionCreators';
-import { filterTodos } from '../redux/selector';
+import { filterTodos } from 'Features/Todo/redux/selector';
 
 export interface TodosPropsToState {
   todos: Map<string, Todo>;

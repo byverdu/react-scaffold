@@ -41,14 +41,19 @@ exports[`<App /> should create a snapshot 1`] = `
             deleteTodo={[Function]}
             todos={
               Immutable.Map {
-                "1234": Object {
+                "6789": Object {
                   "done": false,
-                  "id": "1234",
-                  "text": "todo task",
+                  "id": 6789,
+                  "text": "invasion! 👾",
+                },
+                "12345": Object {
+                  "done": false,
+                  "id": 12345,
+                  "text": "oh yeah! 👓",
                 },
               }
             }
-            todosLength={1}
+            todosLength={2}
           >
             <AddTodo
               addTodo={[Function]}
@@ -81,7 +86,7 @@ exports[`<App /> should create a snapshot 1`] = `
             </AddTodo>
             <section>
               <h3>
-                Showing 1 todo tasks
+                Showing 2 todo tasks
               </h3>
               <Connect(VisibilityFilter)>
                 <VisibilityFilter
@@ -139,10 +144,15 @@ exports[`<App /> should create a snapshot 1`] = `
                 deleteTodo={[Function]}
                 todos={
                   Immutable.Map {
-                    "1234": Object {
+                    "6789": Object {
                       "done": false,
-                      "id": "1234",
-                      "text": "todo task",
+                      "id": 6789,
+                      "text": "invasion! 👾",
+                    },
+                    "12345": Object {
+                      "done": false,
+                      "id": 12345,
+                      "text": "oh yeah! 👓",
                     },
                   }
                 }
@@ -151,12 +161,12 @@ exports[`<App /> should create a snapshot 1`] = `
                   <TodoItem
                     checkHandler={[Function]}
                     deleteTodo={[Function]}
-                    key="1234"
+                    key="6789"
                     todo={
                       Object {
                         "done": false,
-                        "id": "1234",
-                        "text": "todo task",
+                        "id": 6789,
+                        "text": "invasion! 👾",
                       }
                     }
                   >
@@ -169,16 +179,55 @@ exports[`<App /> should create a snapshot 1`] = `
                       }
                     >
                       <label
-                        data-id="1234"
-                        htmlFor="list-item-1234"
+                        data-id={6789}
+                        htmlFor="list-item-6789"
                       >
                         <input
                           checked={false}
-                          id="list-item-1234"
+                          id="list-item-6789"
                           onChange={[Function]}
                           type="checkbox"
                         />
-                        todo task
+                        invasion! 👾
+                      </label>
+                      <button
+                        onClick={[Function]}
+                      >
+                        Delete
+                      </button>
+                    </li>
+                  </TodoItem>
+                  <TodoItem
+                    checkHandler={[Function]}
+                    deleteTodo={[Function]}
+                    key="12345"
+                    todo={
+                      Object {
+                        "done": false,
+                        "id": 12345,
+                        "text": "oh yeah! 👓",
+                      }
+                    }
+                  >
+                    <li
+                      className="task-todo"
+                      style={
+                        Object {
+                          "textDecoration": "none",
+                        }
+                      }
+                    >
+                      <label
+                        data-id={12345}
+                        htmlFor="list-item-12345"
+                      >
+                        <input
+                          checked={false}
+                          id="list-item-12345"
+                          onChange={[Function]}
+                          type="checkbox"
+                        />
+                        oh yeah! 👓
                       </label>
                       <button
                         onClick={[Function]}
