@@ -63,7 +63,7 @@
     "dev-watch": "concurrently \"yarn start\" \"yarn dev-server-watch\"",
     "start": "react-app-rewired start",
     "build-css": "node-sass-chokidar src/ -o src/",
-    "build": "concurrently \"yarn build-css\" \"react-app-rewired build\"",
+    "build": "yarn test && yarn build-css && react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom --coverage --watchAll=false",
     "test-watch": "react-app-rewired test --env=jsdom",
     "lint": "./node_modules/.bin/eslint . --ext .ts,.tsx",
