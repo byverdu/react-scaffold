@@ -21,5 +21,6 @@ export enum HTTPVerbs {
 export enum LoggerTypes {
   success = 'success',
   error = 'error',
+  warn = 'warn',
   empty = ''
 }

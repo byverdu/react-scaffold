@@ -241,6 +241,17 @@ exports[`<App /> should create a snapshot 1`] = `
             </section>
           </TodosContainer>
         </Connect(TodosContainer)>
+        <Connect(Logger)>
+          <Logger
+            isVisible={false}
+            message=""
+            toggleVisibility={[Function]}
+          >
+            <div
+              className="logger hidden"
+            />
+          </Logger>
+        </Connect(Logger)>
       </div>
     </App>
   </Connect(App)>

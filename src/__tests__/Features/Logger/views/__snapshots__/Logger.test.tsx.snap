@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<VisibilityFilter /> should create a snapshot 1`] = `
+<Logger
+  isVisible={true}
+  message="Logger Component"
+  toggleVisibility={[Function]}
+  type="success"
+>
+  <div
+    className="logger visible success"
+  >
+    Logger Component
+  </div>
+</Logger>
+`;

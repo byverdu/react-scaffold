@@ -2,7 +2,7 @@ import * as TodoActions from 'Features/Todo/redux/constants';
 import { SET_ACTIVE_FILTER } from 'Features/VisibilityFilter/redux';
 import { VisibilityFilterEnum, LoggerTypes } from 'Models/Enums';
 import { Map } from 'immutable';
-import { TOGGLE_LOGGER } from 'Features/Logger/redux';
+import { TOGGLE_LOGGER, TOGGLE_LOGGER_VISIBILITY } from 'Features/Logger/redux';
 
 const MOCKED_TODO_ID = '12345';
 const mockedData = require('../../data/todos.json');
@@ -22,10 +22,20 @@ const mockedPayloads = {
     type: SET_ACTIVE_FILTER,
     payload: VisibilityFilterEnum.SHOW_DONE
   },
-  getTodosPayload: {
-    type: TodoActions.GET_ALL_TODOS,
-    payload: Map(mockedData)
-  },
+  getTodosPayload: [
+    {
+      type: TodoActions.GET_ALL_TODOS,
+      payload: Map(mockedData)
+    },
+    {
+      type: TOGGLE_LOGGER,
+      payload: {
+        type: LoggerTypes.success,
+        message: 'TODOS Fetched from API',
+        isVisible: true
+      }
+    }
+  ],
   addTodoPayload: {
     type: TodoActions.ADD_TODO,
     payload: mockedTodo
@@ -47,6 +57,14 @@ const mockedPayloads = {
       type: LoggerTypes.success,
       message: 'Api fetched',
       isVisible: true
+    }
+  },
+  resetLoggerPayload: {
+    type: TOGGLE_LOGGER_VISIBILITY,
+    payload: {
+      type: LoggerTypes.empty,
+      message: '',
+      isVisible: false
     }
   }
 };

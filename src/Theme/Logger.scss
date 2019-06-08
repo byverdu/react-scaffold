@@ -1,0 +1,17 @@
+.visible {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.success {
+  background-color: darken(greenyellow, 30);
+  color: white;
+}
+
+.warn {
+  background-color: orange;
+  color: antiquewhite;
+}

@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { hot } from 'react-hot-loader';
 import 'Theme/App.scss';
 import TodosContainer from 'Features/Todo/views/TodosContainer';
+import Logger from 'Features/Logger/views/LoggerContainer';
 import { apiGetTodos } from 'Features/Todo/redux/actionCreators';
 import { connect } from 'react-redux';
 
@@ -21,6 +22,7 @@ const App: React.FC<AppProps> = ({ getTodos }) => {
         <h1>Todo List App</h1>
       </header>
       <TodosContainer />
+      <Logger />
     </div>
   );
 };
