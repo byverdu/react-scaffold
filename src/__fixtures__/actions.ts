@@ -17,25 +17,47 @@ const addTodoNewState = Map({
   }
 });
 
+const toggleLoggerPayload = (type: LoggerTypes, message: string) => ({
+  type: TOGGLE_LOGGER,
+  payload: {
+    type,
+    message,
+    isVisible: true
+  }
+});
+
+const getTodosPayloadData = {
+  type: TodoActions.GET_TODOS_SUCCESS,
+  payload: Map(mockedData)
+};
+const getTodosPayload = {
+  success: [
+    {
+      type: TodoActions.GET_TODOS_IN_PROGRESS
+    },
+    getTodosPayloadData,
+    toggleLoggerPayload(LoggerTypes.success, 'TODOS Fetched from API')
+  ],
+  failure: [
+    {
+      type: TodoActions.GET_TODOS_IN_PROGRESS
+    },
+    toggleLoggerPayload(
+      LoggerTypes.error,
+      'The request to /todos resulted in an error: Status Code 500 (Internal Server Error)'
+    ),
+    {
+      type: TodoActions.GET_TODOS_FAILURE,
+      payload: Map(mockedData)
+    }
+  ]
+};
+
 const mockedPayloads = {
   setFilterPayload: {
     type: SET_ACTIVE_FILTER,
     payload: VisibilityFilterEnum.SHOW_DONE
   },
-  getTodosPayload: [
-    {
-      type: TodoActions.GET_ALL_TODOS,
-      payload: Map(mockedData)
-    },
-    {
-      type: TOGGLE_LOGGER,
-      payload: {
-        type: LoggerTypes.success,
-        message: 'TODOS Fetched from API',
-        isVisible: true
-      }
-    }
-  ],
   addTodoPayload: {
     type: TodoActions.ADD_TODO,
     payload: mockedTodo
@@ -70,6 +92,9 @@ const mockedPayloads = {
 };
 
 export {
+  getTodosPayload,
+  getTodosPayloadData,
+  toggleLoggerPayload,
   mockedPayloads,
   mockedTodo,
   addTodoNewState,

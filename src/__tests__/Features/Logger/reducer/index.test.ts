@@ -1,5 +1,5 @@
 import { initialState, logger } from 'Features/Logger/redux';
-import { mockedPayloads } from '__fixtures__/reducer';
+import { mockedPayloads } from '__fixtures__/actions';
 
 describe('logger reducer', () => {
   it('should return the initialState by default', () => {

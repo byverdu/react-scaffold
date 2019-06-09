@@ -2,7 +2,7 @@ import visibilityFilter, {
   initialState
 } from 'Features/VisibilityFilter/redux';
 import { VisibilityFilterEnum } from 'Models/Enums';
-import { mockedPayloads } from '__fixtures__/reducer';
+import { mockedPayloads } from '__fixtures__/actions';
 
 describe('visibilityFilter reducer', () => {
   it('should return the initialState by default', () => {

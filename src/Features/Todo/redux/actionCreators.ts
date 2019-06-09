@@ -1,5 +1,5 @@
 import { createAction } from 'redux-actions';
-import { Todo, UpdateTodoPayload, MapSignature } from 'Models/Todo';
+import { Todo, UpdateTodoPayload } from 'Models/Todo';
 import * as Actions from 'Features/Todo/redux/constants';
 import { ThunkAction } from 'redux-thunk';
 import { RootState } from 'Core/reducers';
@@ -7,8 +7,14 @@ import { Action, Dispatch } from 'redux';
 import { API } from 'Models/Api';
 import { ApiRoutes, LoggerTypes } from 'Models/Enums';
 import { toggleLogger } from 'Features/Logger/redux';
+import { Map } from 'immutable';
 
-export const getTodos = createAction<MapSignature>(Actions.GET_ALL_TODOS);
+export const getTodos = createAction<Map<string, Todo>>(
+  Actions.GET_TODOS_SUCCESS
+);
+export const getTodosFailed = createAction<Map<string, Todo>>(
+  Actions.GET_TODOS_FAILURE
+);
 export const addTodo = createAction<Todo>(Actions.ADD_TODO);
 export const updateTodo = createAction<UpdateTodoPayload>(Actions.UPDATE_TODO);
 export const deleteTodo = createAction<string>(Actions.DELETE_TODO);
@@ -23,7 +29,11 @@ export const apiGetTodos = (): ThunkAction<
     dispatch: Dispatch<Action<string>>,
     getState: () => RootState,
     api: API
-  ): Promise<any> => {
+  ): Promise<Action> => {
+    dispatch({
+      type: Actions.GET_TODOS_IN_PROGRESS
+    });
+
     try {
       const todosResponse = await api.get(ApiRoutes.getTodos);
       dispatch(getTodos(todosResponse));
@@ -35,7 +45,15 @@ export const apiGetTodos = (): ThunkAction<
         })
       );
     } catch (error) {
-      throw Error(error);
+      const oldData = getState().todos.todos;
+      dispatch(
+        toggleLogger({
+          type: LoggerTypes.error,
+          message: error.message,
+          isVisible: true
+        })
+      );
+      return dispatch(getTodosFailed(oldData));
     }
   };
 };

@@ -1,6 +1,6 @@
-import { TodoState, Todo, UpdateTodoPayload, MapSignature } from 'Models/Todo';
+import { TodoState, Todo, UpdateTodoPayload } from 'Models/Todo';
 import { Map } from 'immutable';
-import { handleActions } from 'redux-actions';
+import { handleActions, combineActions } from 'redux-actions';
 import * as Actions from 'Features/Todo/redux/constants';
 import mergeReducers from 'merge-reducers';
 
@@ -21,9 +21,12 @@ const todoReducer = handleActions<TodoState, Todo>(
   initialState
 );
 
-const todosReducer = handleActions<TodoState, MapSignature>(
+const todosReducer = handleActions<TodoState, Map<string, Todo>>(
   {
-    [Actions.GET_ALL_TODOS]: (state, { payload }): TodoState => ({
+    [combineActions(
+      Actions.GET_TODOS_SUCCESS,
+      Actions.GET_TODOS_FAILURE
+    ).toString()]: (state, { payload }): TodoState => ({
       todos: Map(payload)
     })
   },

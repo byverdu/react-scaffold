@@ -2,10 +2,11 @@ import todoFilter, { initialState } from 'Features/Todo/redux/reducer';
 import { Map } from 'immutable';
 import {
   mockedPayloads,
+  getTodosPayloadData,
   addTodoNewState,
   MOCKED_TODO_ID,
   mockedData
-} from '__fixtures__/reducer';
+} from '__fixtures__/actions';
 import { TodoState } from 'Models/Todo';
 
 const sharedInitialState: TodoState = {
@@ -18,7 +19,7 @@ describe('todoFilter reducer', () => {
   });
 
   it('should get all the Todos', () => {
-    const newState = todoFilter(initialState, mockedPayloads.getTodosPayload);
+    const newState = todoFilter(initialState, getTodosPayloadData);
     expect(newState.todos.size).toEqual(2);
   });
 

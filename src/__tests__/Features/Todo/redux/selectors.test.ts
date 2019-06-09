@@ -1,7 +1,7 @@
 import { filterTodos } from 'Features/Todo/redux/selector';
 import rootState from '__fixtures__/rootState';
-import { VisibilityFilterEnum } from 'Models/Enums';
-import { MOCKED_TODO_ID } from '__fixtures__/reducer';
+import { VisibilityFilterEnum, LoggerTypes } from 'Models/Enums';
+import { MOCKED_TODO_ID } from '__fixtures__/actions';
 import { RootState } from 'Core/reducers';
 import { Todo } from 'Models/Todo';
 
@@ -17,6 +17,11 @@ const changeFilterState = (activeFilter: VisibilityFilterEnum): RootState => {
     },
     todos: {
       todos: updatedTodos
+    },
+    logger: {
+      type: LoggerTypes.empty,
+      message: '',
+      isVisible: false
     }
   };
 };
