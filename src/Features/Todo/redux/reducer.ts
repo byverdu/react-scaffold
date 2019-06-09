@@ -10,7 +10,7 @@ export const initialState: TodoState = {
 
 const todoReducer = handleActions<TodoState, Todo>(
   {
-    [Actions.ADD_TODO]: (state, { payload }): TodoState => {
+    [Actions.ADD_TODO_SUCCESS]: (state, { payload }): TodoState => {
       const todos = state.todos.set(payload.id, payload);
       return {
         ...state,

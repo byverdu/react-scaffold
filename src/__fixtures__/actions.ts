@@ -53,14 +53,39 @@ const getTodosPayload = {
   ]
 };
 
+const addTodoPayloadData = {
+  type: TodoActions.ADD_TODO_SUCCESS,
+  payload: mockedTodo
+};
+const addTodoPayload = {
+  success: [
+    {
+      type: TodoActions.ADD_TODO_IN_PROGRESS
+    },
+    addTodoPayloadData,
+    toggleLoggerPayload(
+      LoggerTypes.success,
+      `${mockedTodo.id} TODO has been added`
+    )
+  ],
+  failure: [
+    {
+      type: TodoActions.ADD_TODO_IN_PROGRESS
+    },
+    toggleLoggerPayload(
+      LoggerTypes.error,
+      'The request to /todos/add resulted in an error: Status Code 500 (Internal Server Error)'
+    ),
+    {
+      type: TodoActions.ADD_TODO_FAILURE
+    }
+  ]
+};
+
 const mockedPayloads = {
   setFilterPayload: {
     type: SET_ACTIVE_FILTER,
     payload: VisibilityFilterEnum.SHOW_DONE
-  },
-  addTodoPayload: {
-    type: TodoActions.ADD_TODO,
-    payload: mockedTodo
   },
   updateTodoPayload: {
     type: TodoActions.UPDATE_TODO,
@@ -99,5 +124,7 @@ export {
   mockedTodo,
   addTodoNewState,
   mockedData,
-  MOCKED_TODO_ID
+  MOCKED_TODO_ID,
+  addTodoPayload,
+  addTodoPayloadData
 };

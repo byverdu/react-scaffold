@@ -43,7 +43,7 @@ function createApp(routes) {
 
     db.set('todos', todos).write();
     
-    res.jsonp(todos);
+    res.jsonp(todo);
   });
 
   server.patch('/todos/update', (req: Request, res: Response) => {

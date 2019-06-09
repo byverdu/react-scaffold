@@ -4,7 +4,7 @@ import * as Actions from 'Features/Todo/redux/constants';
 import { ThunkAction } from 'redux-thunk';
 import { RootState } from 'Core/reducers';
 import { Action, Dispatch } from 'redux';
-import { API } from 'Models/Api';
+import { API, APIResponsesData } from 'Models/Api';
 import { ApiRoutes, LoggerTypes } from 'Models/Enums';
 import { toggleLogger } from 'Features/Logger/redux';
 import { Map } from 'immutable';
@@ -15,7 +15,7 @@ export const getTodos = createAction<Map<string, Todo>>(
 export const getTodosFailed = createAction<Map<string, Todo>>(
   Actions.GET_TODOS_FAILURE
 );
-export const addTodo = createAction<Todo>(Actions.ADD_TODO);
+export const addTodo = createAction<Todo>(Actions.ADD_TODO_SUCCESS);
 export const updateTodo = createAction<UpdateTodoPayload>(Actions.UPDATE_TODO);
 export const deleteTodo = createAction<string>(Actions.DELETE_TODO);
 
@@ -35,7 +35,9 @@ export const apiGetTodos = (): ThunkAction<
     });
 
     try {
-      const todosResponse = await api.get(ApiRoutes.getTodos);
+      const todosResponse: APIResponsesData['getTodos'] = await api.get(
+        ApiRoutes.getTodos
+      );
       dispatch(getTodos(todosResponse));
       dispatch(
         toggleLogger({
@@ -66,13 +68,20 @@ export const apiAddTodo = (
     getState: () => RootState,
     api: API
   ): Promise<any> => {
+    dispatch({
+      type: Actions.ADD_TODO_IN_PROGRESS
+    });
     try {
       const payloadRequest = {
         todoId: todo.id,
         todo
       };
-      await api.post(ApiRoutes.addTodo, payloadRequest);
-      dispatch(addTodo(todo));
+      const addResponse: APIResponsesData['addTodo'] = await api.post(
+        ApiRoutes.addTodo,
+        payloadRequest
+      );
+
+      dispatch(addTodo(addResponse));
       dispatch(
         toggleLogger({
           type: LoggerTypes.success,
@@ -81,7 +90,16 @@ export const apiAddTodo = (
         })
       );
     } catch (error) {
-      throw Error(error);
+      dispatch(
+        toggleLogger({
+          type: LoggerTypes.error,
+          message: error.message,
+          isVisible: true
+        })
+      );
+      dispatch({
+        type: Actions.ADD_TODO_FAILURE
+      });
     }
   };
 };

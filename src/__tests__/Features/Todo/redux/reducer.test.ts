@@ -5,7 +5,8 @@ import {
   getTodosPayloadData,
   addTodoNewState,
   MOCKED_TODO_ID,
-  mockedData
+  mockedData,
+  addTodoPayloadData
 } from '__fixtures__/actions';
 import { TodoState } from 'Models/Todo';
 
@@ -24,7 +25,7 @@ describe('todoFilter reducer', () => {
   });
 
   it('should add a Todo', () => {
-    expect(todoFilter(initialState, mockedPayloads.addTodoPayload)).toEqual({
+    expect(todoFilter(initialState, addTodoPayloadData)).toEqual({
       todos: addTodoNewState
     });
   });
