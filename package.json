@@ -57,7 +57,6 @@
     "uuid": "3.3.2"
   },
   "scripts": {
-    "preinstall": "chmod +x ./scripts/changeGitRemote.sh",
     "dev-server": "./node_modules/.bin/ts-node --skip-project  ./mock-server/server.ts",
     "dev-server-watch": "nodemon --exec ./node_modules/.bin/ts-node --skip-project  ./mock-server/server.ts",
     "dev": "concurrently \"yarn start\" \"yarn dev-server\"",
@@ -69,7 +68,9 @@
     "test-watch": "react-app-rewired test --env=jsdom",
     "lint": "./node_modules/.bin/eslint . --ext .ts,.tsx",
     "prettier": "./node_modules/.bin/prettier \"src/**/*\" --write",
-    "change-git-remote": "./scripts/changeGitRemote.sh"
+    "change-remote": "./scripts/changeGitRemote.sh",
+    "custom-audit": "./scripts/yarnAudit.sh",
+    "clearout": "rm -rf node_modules"
   },
   "jest": {
     "coverageThreshold": {
