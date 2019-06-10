@@ -6,11 +6,6 @@ env:
   global:
     - NODE_ENV=production
 
-cache:
-  yarn: true
-  directories:
-    - node_modules
-
 # safelist
 branches:
   only:
