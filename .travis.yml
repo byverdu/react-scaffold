@@ -11,6 +11,10 @@ branches:
   only:
   - master
 
+# do ./scripts folder executable
+before_install:
+  - chmod +x ./scripts/*
+
 script:
   - yarn clearout
   - yarn install
