@@ -13,7 +13,11 @@ branches:
 
 # do ./scripts folder executable
 before_install:
+  - pip install --user codecov
   - chmod +x ./scripts/*
+
+after_success:
+  - codecov --file coverage/lcov.info --disable search
 
 script:
   - yarn clearout

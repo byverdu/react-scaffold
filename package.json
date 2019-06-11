@@ -2,6 +2,9 @@
   "name": "react-scaffold",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "<=10.6.0"
+  },
   "proxy": "http://localhost:3001",
   "dependencies": {
     "@hot-loader/react-dom": "16.8.6",
@@ -20,6 +23,7 @@
     "axios": "0.19.0",
     "axios-mock-adapter": "^1.16.0",
     "classnames": "^2.2.6",
+    "codecov": "3.5.0",
     "concurrently": "4.1.0",
     "customize-cra": "0.2.12",
     "enzyme": "3.9.0",
@@ -118,6 +122,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {}
+  }
 }
