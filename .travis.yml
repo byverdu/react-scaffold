@@ -5,6 +5,7 @@ node_js:
 env:
   global:
     - NODE_ENV=production
+    - CODECOV_TOKEN=4ac5e4e0-a8fd-4b74-98b8-a0b64364a264
 
 # do ./scripts folder executable
 before_install:
@@ -12,10 +13,10 @@ before_install:
   - chmod +x ./scripts/*
 
 after_success:
-  - codecov --file coverage/lcov.info --disable search
+  - codecov
 
 script:
   - yarn clearout
   - yarn install
-  - yarn test && node_modules/.bin/codecov -t 4ac5e4e0-a8fd-4b74-98b8-a0b64364a264
+  - yarn test
   - yarn build
