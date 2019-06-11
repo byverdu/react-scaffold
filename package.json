@@ -57,8 +57,8 @@
     "uuid": "3.3.2"
   },
   "scripts": {
-    "dev-server": "./node_modules/.bin/ts-node --skip-project  ./mock-server/server.ts",
-    "dev-server-watch": "nodemon --exec ./node_modules/.bin/ts-node --skip-project  ./mock-server/server.ts",
+    "dev-server": "node --inspect=0.0.0.0 ./node_modules/.bin/ts-node --skip-project ./mock-server/server.ts",
+    "dev-server-watch": "nodemon --exec node --inspect=0.0.0.0 ./node_modules/.bin/ts-node --skip-project  ./mock-server/server.ts --delay 500ms",
     "dev": "concurrently \"yarn start\" \"yarn dev-server\"",
     "dev-watch": "concurrently \"yarn start\" \"yarn dev-server-watch\"",
     "start": "react-app-rewired start",
