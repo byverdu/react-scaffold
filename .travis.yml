@@ -22,6 +22,5 @@ after_success:
 script:
   - yarn clearout
   - yarn install
-  - yarn custom-audit
   - yarn test
   - yarn build
