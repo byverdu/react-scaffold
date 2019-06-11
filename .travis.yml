@@ -6,11 +6,6 @@ env:
   global:
     - NODE_ENV=production
 
-# safelist
-branches:
-  only:
-  - master
-
 # do ./scripts folder executable
 before_install:
   - pip install --user codecov
@@ -22,5 +17,5 @@ after_success:
 script:
   - yarn clearout
   - yarn install
-  - yarn test
+  - yarn test && node_modules/.bin/codecov -t 4ac5e4e0-a8fd-4b74-98b8-a0b64364a264
   - yarn build
