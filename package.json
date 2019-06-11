@@ -73,7 +73,7 @@
     "lint": "./node_modules/.bin/eslint . --ext .ts,.tsx",
     "prettier": "./node_modules/.bin/prettier \"src/**/*\" --write",
     "change-remote": "./scripts/changeGitRemote.sh",
-    "custom-audit": "./scripts/yarnAudit.sh",
+    "postinstall": "./scripts/yarnAudit.sh",
     "clearout": "rm -rf node_modules"
   },
   "jest": {
