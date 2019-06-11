@@ -5,7 +5,6 @@ node_js:
 env:
   global:
     - NODE_ENV=production
-    - CODECOV_TOKEN=4ac5e4e0-a8fd-4b74-98b8-a0b64364a264
 
 # do ./scripts folder executable
 before_install:

@@ -1,4 +1,4 @@
-![Travis (.org) branch](https://img.shields.io/travis/byverdu/react-scaffold/master.svg) [![GitHub license](https://img.shields.io/github/license/byverdu/react-scaffold.svg)](https://github.com/byverdu/react-scaffold) ![Codecov](https://img.shields.io/codecov/c/github/byverdu/react-scaffold.svg?style=plastic) ![GitHub last commit](https://img.shields.io/github/last-commit/byverdu/react-scaffold.svg)
+![Travis (.org) branch](https://img.shields.io/travis/byverdu/react-scaffold/master.svg) [![GitHub license](https://img.shields.io/github/license/byverdu/react-scaffold.svg)](https://github.com/byverdu/react-scaffold) ![Codecov](https://img.shields.io/codecov/c/github/byverdu/react-scaffold.svg) ![GitHub last commit](https://img.shields.io/github/last-commit/byverdu/react-scaffold.svg)
 
 # React-Scaffold
 
