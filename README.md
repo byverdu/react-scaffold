@@ -11,10 +11,18 @@ Custom configuration for [create-react-app](https://facebook.github.io/create-re
 > yarn install
 > yarn start
 
-# change your git remote url
-# you might need to make the folder executable
-# chmod +x ./scripts/*
+# There are some bash scripts that perform this tasks
+# you might need to make the scripts folder executable
+> chmod +x ./scripts/*
+
+# Change your git remote url
 > yarn change-remote # is just running -> git remote set-url origin $your_remote
+
+# Print the tree view of your project
+> yarn print-tree # you need have installed the tree command -> brew install tree
+
+# Stop processes with "exit 1" if a high or critical vulnerability is found
+> yarn check-audit
 ```
 
 More info about `create-react-app` in their [docs page](https://facebook.github.io/create-react-app/docs/getting-started).
