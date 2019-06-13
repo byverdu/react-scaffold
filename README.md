@@ -64,10 +64,13 @@ More info about `create-react-app` in their [docs page](https://facebook.github.
 * [codecov](https://codecov.io/) integration with CI and github. View the [docs](https://docs.codecov.io/docs) for more info
 * [enzyme](https://airbnb.io/enzyme/) for testing react components and [enzyme-to-json](https://github.com/adriantoine/enzyme-to-json#readme) for the snapshots.
 * [axios-mock-adapter](https://github.com/ctimmerm/axios-mock-adapter#readme) to test http requests.
-* `redux-mock-store`, well you may guess it.
+* [redux-mock-store](https://github.com/dmitry-zaets/redux-mock-store), well you may guess it.
+* e2e tests using [cypress](https://www.cypress.io/)
 * Badges from [shields.io](https://shields.io/), change **user** and **repo**
 
 ---
 > Note on SCSS, there's no need to compile files during development because you can import `SCSS` files directly. Also, CSS Modules are available by default.
 >
 > Tslint will be [deprecated any time in 2019](https://github.com/palantir/tslint) in favor to use [eslint typescript](https://github.com/typescript-eslint/typescript-eslint). As a transition period all [eslint rules](https://eslint.org/docs/rules/) must be added in `.eslintrc.js` file.
+>
+> The version range of TypeScript currently supported by typescript-eslint is >=3.2.1 <3.5.0

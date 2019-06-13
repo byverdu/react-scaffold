@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./e2e/cypress",
+    "strict": true,
+    "sourceMap": true,
+    "module": "commonjs",
+    "target": "es5",
+    "lib": [
+      "dom",
+      "es6"
+    ],
+    "experimentalDecorators": true
+  },
+  "compileOnSave": false
+}

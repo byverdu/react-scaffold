@@ -24,7 +24,7 @@ const TodosContainer: React.SFC<ContainerProps> = ({
         : 'No todo tasks to show';
 
     return (
-      <section>
+      <section className="list-todos">
         <h3>{title}</h3>
         {todosLength > 0 && <VisibilityFilter />}
         <Todos
