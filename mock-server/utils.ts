@@ -12,7 +12,7 @@ interface Utils {
 
 const readFileAsync = promisify(fs.readFile);
 const getPathToJsonMock = fileName => {
-  const mocksPath = 'data';
+  const mocksPath = 'e2e/cypress/fixtures';
   const jsonPath = path.join(__dirname, '../', `${mocksPath}`, `${fileName}.json`);
 
   return jsonPath;

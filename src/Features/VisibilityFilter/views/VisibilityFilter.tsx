@@ -58,7 +58,7 @@ const VisibilityFilter: React.SFC<ComponentProps> = ({
     </label>
   ));
 
-  return <section>{filtersData}</section>;
+  return <section className="visibility-actions">{filtersData}</section>;
 };
 
 export default connect<FilterMapStateToProps, FilterDispatchToProps>(
