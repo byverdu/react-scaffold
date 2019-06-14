@@ -17,7 +17,6 @@ export default class TodosRoutes {
   addTodo(todo: Todo) {
     cy.fixture('todos.json').then((todos: Map<string, Todo>) => {
       const newTodos = Map(todos).set(todo.id, todo);
-      console.log(todos, newTodos)
       cy.route({
           method: 'POST',
           url: '/todos/add',

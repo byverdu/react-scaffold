@@ -61,6 +61,7 @@
     "ts-node": "8.2.0",
     "typescript": "3.4.5",
     "uuid": "3.3.2",
+    "wait-on": "^3.2.0",
     "webpack": "^4.34.0"
   },
   "scripts": {
@@ -78,8 +79,8 @@
     "change-remote": "./scripts/changeGitRemote.sh",
     "print-tree": "./scripts/printTreeView.sh",
     "check-audit": "./scripts/yarnAudit.sh",
-    "cypress-open": "node_modules/.bin/cypress open -P e2e",
-    "cypress-run": "node_modules/.bin/cypress run -P e2e"
+    "cypress-open": "yarn dev & wait-on http://localhost:3000 && node_modules/.bin/cypress open -P e2e",
+    "cypress-run": "yarn dev & wait-on http://localhost:3000 && node_modules/.bin/cypress run -P e2e"
   },
   "jest": {
     "coverageThreshold": {
