@@ -16,7 +16,7 @@ context('Get initial Todos from the DB', () => {
   describe('Given that I visit the home page with saved Todos', () => {
     before(() => {
       cy.wait('@getTodos');
-    });   
+    });
     it('then I should see the title', () => {
       cy.get('.App-header h1').contains('Todo List App')
     });

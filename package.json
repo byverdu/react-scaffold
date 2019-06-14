@@ -7,6 +7,7 @@
   },
   "proxy": "http://localhost:3001",
   "dependencies": {
+    "@cypress/webpack-preprocessor": "^4.1.0",
     "@hot-loader/react-dom": "16.8.6",
     "@types/enzyme": "3.9.3",
     "@types/enzyme-adapter-react-16": "1.0.5",
@@ -25,6 +26,7 @@
     "classnames": "^2.2.6",
     "concurrently": "4.1.0",
     "customize-cra": "0.2.12",
+    "cypress": "^3.3.1",
     "enzyme": "3.9.0",
     "enzyme-adapter-react-16": "1.13.2",
     "enzyme-to-json": "3.3.5",
@@ -55,17 +57,17 @@
     "redux-mock-store": "^1.5.3",
     "redux-thunk": "2.3.0",
     "reselect": "4.0.0",
+    "ts-loader": "^6.0.2",
     "ts-node": "8.2.0",
     "typescript": "3.4.5",
-    "uuid": "3.3.2"
+    "uuid": "3.3.2",
+    "webpack": "^4.34.0"
   },
   "scripts": {
     "postinstall": "./scripts/yarnAudit.sh",
-    "dev-server": "node --inspect=0.0.0.0 ./node_modules/.bin/ts-node --skip-project ./mock-server/server.ts",
-    "dev-server-watch": "nodemon --exec node --inspect=0.0.0.0 ./node_modules/.bin/ts-node --skip-project  ./mock-server/server.ts --delay 500ms",
-    "dev": "concurrently \"yarn start\" \"yarn dev-server\"",
-    "dev-watch": "concurrently \"yarn start\" \"yarn dev-server-watch\"",
+    "dev-server": "nodemon --exec node --inspect=0.0.0.0 ./node_modules/.bin/ts-node --skip-project  ./mock-server/server.ts --delay 500ms",
     "start": "react-app-rewired start",
+    "dev": "concurrently \"yarn start\" \"yarn dev-server\"",
     "build-css": "node-sass-chokidar src/ -o src/",
     "build": "yarn build-css && react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom --coverage --watchAll=false",
@@ -75,7 +77,9 @@
     "clearout": "rm -rf node_modules",
     "change-remote": "./scripts/changeGitRemote.sh",
     "print-tree": "./scripts/printTreeView.sh",
-    "check-audit": "./scripts/yarnAudit.sh"
+    "check-audit": "./scripts/yarnAudit.sh",
+    "cypress-open": "node_modules/.bin/cypress open -P e2e",
+    "cypress-run": "node_modules/.bin/cypress run -P e2e"
   },
   "jest": {
     "coverageThreshold": {
