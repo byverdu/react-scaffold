@@ -18,4 +18,5 @@ script:
   - yarn clearout
   - yarn install
   - yarn test
+  - yarn cypress-run
   - yarn build
