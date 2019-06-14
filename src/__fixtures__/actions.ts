@@ -5,7 +5,7 @@ import { Map } from 'immutable';
 import { TOGGLE_LOGGER, TOGGLE_LOGGER_VISIBILITY } from 'Features/Logger/redux';
 
 const MOCKED_TODO_ID = '12345';
-const mockedData = require('../../data/todos.json');
+const mockedData = require('../../e2e/cypress/fixtures/todos.json');
 const mockedTodo = {
   done: false,
   id: '9876',

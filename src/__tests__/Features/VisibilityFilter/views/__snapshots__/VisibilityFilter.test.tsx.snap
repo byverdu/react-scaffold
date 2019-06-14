@@ -18,7 +18,9 @@ exports[`<VisibilityFilter /> should create a snapshot 1`] = `
       activeFilter="SHOW_ALL"
       filterHandler={[Function]}
     >
-      <section>
+      <section
+        className="visibility-actions"
+      >
         <label
           htmlFor="SHOW_ALL"
           key="SHOW_ALL"
