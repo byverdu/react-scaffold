@@ -58,7 +58,9 @@ exports[`<App /> should create a snapshot 1`] = `
             <AddTodo
               addTodo={[Function]}
             >
-              <section>
+              <section
+                className="add-todo"
+              >
                 <h2>
                   Add a Todo
                 </h2>
@@ -84,7 +86,9 @@ exports[`<App /> should create a snapshot 1`] = `
                 </form>
               </section>
             </AddTodo>
-            <section>
+            <section
+              className="list-todos"
+            >
               <h3>
                 Showing 2 todo tasks
               </h3>
@@ -93,7 +97,9 @@ exports[`<App /> should create a snapshot 1`] = `
                   activeFilter="SHOW_ALL"
                   filterHandler={[Function]}
                 >
-                  <section>
+                  <section
+                    className="visibility-actions"
+                  >
                     <label
                       htmlFor="SHOW_ALL"
                       key="SHOW_ALL"
