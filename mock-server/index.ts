@@ -9,7 +9,7 @@ const {
   deleteTodo
 } = utils;
 
-const PORT = process.env.PORT || 3001;
+const MOCK_PORT = process.env.MOCK_PORT || 3001;
 
 function createApp(routes) {
   const server: Application = jsonServer.create();
@@ -90,8 +90,8 @@ function createApp(routes) {
   try {
     const routes = await getContentForRoutes();
     const app = createApp(routes);
-    console.info(`app running on port ${PORT}`);
-    app.listen(PORT);
+    console.info(`app running on port ${MOCK_PORT}`);
+    app.listen(MOCK_PORT);
   } catch (error) {
     throw new Error(error);
   }
