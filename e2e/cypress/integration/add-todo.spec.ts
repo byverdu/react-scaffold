@@ -11,7 +11,7 @@ context('Get initial Todos from the DB', () => {
       id: '128956',
       text: todoText,
       done: false
-    }
+    };
 
   before(() => {
     cy.server();

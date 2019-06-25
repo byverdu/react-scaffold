@@ -19,13 +19,13 @@ context('Get initial Todos from the DB', () => {
       cy.wait('@getTodos');
     });   
     it('then I should see the title', () => {
-      cy.get('.App-header h1').contains('Todo List App')
+      cy.get('.App-header h1').contains('Todo List App');
     });
     it('and I should see the Add todo section', () => {
-      cy.get('.add-todo').should('be.visible')
+      cy.get('.add-todo').should('be.visible');
     });
     it('and I should not see the visibility filters', () => {
-      cy.get('.visibility-actions').should('not.be.visible')
+      cy.get('.visibility-actions').should('not.be.visible');
     });
     it('and I should see zero todos items', () => {
       cy.get('.list-todos').contains('No todo tasks to show');
