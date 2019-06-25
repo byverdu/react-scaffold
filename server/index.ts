@@ -1,4 +1,4 @@
-import { Application, Request, Response } from "express";
+import { Application, Request, Response } from 'express';
 
 const express = require('express');
 const app: Application = express();
@@ -6,7 +6,7 @@ const PORT = process.env.PROT || 3001;
 
 app.use('app/public/', function (req, res) {
   res.sendFile('index.html');
-})
+});
 
 app.get('/todos', function (req: Request, res: Response) {
   res
@@ -25,5 +25,5 @@ app.get('/', function (req, res) {
 });
 
 app.listen(PORT, function () {
-  console.log(`Example app listening on port ${PORT}!`);
+  console.info(`Example app listening on port ${PORT}!`);
 });
