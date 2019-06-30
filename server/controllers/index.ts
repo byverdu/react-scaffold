@@ -19,7 +19,6 @@ export function getTodos (req: Request, res: Response) {
   .on('data', function (data) {
     const todo: Todo = JSON.parse(data.value);
     todos[todo.id] = todo;
-    console.log(data.key, '=', data.value)
   })
   .on('error', function (err) {
     res.status(500).send( err );
@@ -30,22 +29,25 @@ export function getTodos (req: Request, res: Response) {
 };
 
 export function postTodosAdd (req: Request, res: Response) {
+  const { todoId, todo } = req.body;
+  const todoToString = JSON.stringify(todo);
+  const id = `${DB_PREFIX}${todoId}`;
   
-  db.put()
-  const todos = {};
-  db.createReadStream({
-    gte: 'todo',
-    lte: 'todo~'
-  })
-  .on('data', function (data) {
-    const todo: Todo = JSON.parse(data.value);
-    todos[todo.id] = todo;
-    console.log(data.key, '=', data.value)
-  })
-  .on('error', function (err) {
-    res.status(500).send( err );
-  })
-  .on('end', function () {
-    res.status(200).send( todos );
-  })
+  db.put(id, todoToString)
+    .then(() => res.status(200).send( todo ))
+    .catch(err => res.status(500).send( err ));
 };
+
+export function deleteTodos(req: Request, res: Response) {
+  const {todoId} = req.params;
+  const id = `${DB_PREFIX}${todoId}`;
+
+  db.del(id)
+    .then(() => res.status(200).send( 'ok' ))
+    .catch(err => res.status(500).send( err ));
+}
+
+export function putTodosUpdate() {
+  const { todoId, status } = req.body;
+
+}

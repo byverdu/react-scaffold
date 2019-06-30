@@ -60,7 +60,7 @@ function createApp(routes) {
   });
 
   server.delete('/todos/delete/:todoId', (req: Request, res: Response) => {
-    const todoId = req.param('todoId');
+    const {todoId} = req.params;
     const todos = db.get('todos')
       .deleteTodo(todoId)
       .value();
