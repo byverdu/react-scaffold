@@ -1,12 +1,11 @@
 import { Application, Request, Response } from 'express';
+import path from 'path';
 
 const express = require('express');
 const app: Application = express();
 const PORT = process.env.PROT || 3001;
 
-app.use('app/public/', function (req, res) {
-  res.sendFile('index.html');
-});
+app.use('/static', express.static(path.join(__dirname, "/client/static")))
 
 app.get('/todos', function (req: Request, res: Response) {
   res
@@ -20,8 +19,10 @@ app.get('/todos', function (req: Request, res: Response) {
     });
 });
 
+const jsonPath = path.join(__dirname, 'client/index.html');
+
 app.get('/', function (req, res) {
-  res.status(200).sendFile( __dirname + '/app/public/index.html');
+  res.status(200).sendFile( jsonPath );
 });
 
 app.listen(PORT, function () {
