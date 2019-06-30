@@ -75,7 +75,7 @@
     "mock": "concurrently \"npm run start\" \"npm run mock-server\"",
     "dev": "concurrently \"npm run start\" \"npm run dev-server\"",
     "build-css": "node-sass-chokidar src/ -o src/",
-    "build-client": "npm run build-css && react-app-rewired build && cp -R build server && mv server/build server/client",
+    "build-client": "./scripts/buildClient.sh",
     "build-server": "./node_modules/.bin/tsc -p server",
     "build": "./scripts/build.sh",
     "test": "react-app-rewired test --env=jsdom --coverage --watchAll=false",
