@@ -5,3 +5,4 @@ src/Theme/**/*.css
 settings.json
 yarn-error.log
 app/
+server/client/*
