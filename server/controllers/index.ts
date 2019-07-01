@@ -47,7 +47,20 @@ export function deleteTodos(req: Request, res: Response) {
     .catch(err => res.status(500).send( err ));
 }
 
-export function putTodosUpdate() {
+export function putTodosUpdate(req: Request, res: Response) {
   const { todoId, status } = req.body;
+  const id = `${DB_PREFIX}${todoId}`;
 
+  db.get(id, (err, value) => {
+    if (err) {
+      res.status(500).send( err );
+      return;
+    }
+    const todo: Todo = JSON.parse(value);
+    todo.done = status;
+
+    db.put(id, JSON.stringify(todo))
+    .then(() => res.status(200).send( todo ))
+    .catch(err => res.status(500).send( err ));
+  })
 }
