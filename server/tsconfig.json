@@ -17,6 +17,7 @@
     "outDir": "../build-server"
   },
   "exclude": [
-    "client"
+    "client",
+    "__tests__"
   ]
 }
