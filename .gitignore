@@ -1,6 +1,10 @@
 coverage/*
 node_modules
-build/**
+build*/**
 src/Theme/**/*.css
 settings.json
 yarn-error.log
+app/
+server/client/*
+server/todosDb
+.history

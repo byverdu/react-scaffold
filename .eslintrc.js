@@ -33,6 +33,12 @@ module.exports = {
         '@typescript-eslint/semi': ['warn']
         // << add your own custom rules here >>
       },
+      globals: {
+        cy: true
+      },
+      env: {
+        mocha: true
+      }
     }
   ],
   rules: {

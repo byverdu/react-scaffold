@@ -6,6 +6,12 @@ env:
   global:
     - NODE_ENV=production
 
+addons:
+  apt:
+    packages:
+      # Ubuntu 16+ does not install this dependency by default, so we need to install it ourselves
+      - libgconf-2-4
+
 # do ./scripts folder executable
 before_install:
   - pip install --user codecov
@@ -18,4 +24,5 @@ script:
   - yarn clearout
   - yarn install
   - yarn test
+  - yarn cypress-run
   - yarn build

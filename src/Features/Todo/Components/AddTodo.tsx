@@ -31,7 +31,7 @@ const AddTodo: React.SFC<AddTodoProps> = ({ addTodo }) => {
   };
 
   return (
-    <section>
+    <section className="add-todo">
       <h2>Add a Todo</h2>
       {todoText}
       <form noValidate>

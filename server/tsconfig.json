@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "types" : ["node", "express"],
+    "baseUrl": "server",
+    "target": "es5",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": false,
+    "downlevelIteration": true,
+    "outDir": "../build-server"
+  },
+  "exclude": [
+    "client"
+  ]
+}
