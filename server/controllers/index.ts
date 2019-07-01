@@ -1,7 +1,13 @@
+interface Todo {
+  text: string;
+  id: string;
+  done: boolean;
+}
+
 import { Request, Response } from 'express';
 import path from 'path';
 import db from '../db';
-import {Todo} from '../../src/Models/Todo';
+
 
 const DB_PREFIX = 'todo_';
 
