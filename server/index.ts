@@ -27,3 +27,5 @@ app.patch('/todos/update', putTodosUpdate);
 app.listen(PORT, function () {
   console.info(`Example app listening on port ${PORT}!`);
 });
+
+export default app;
