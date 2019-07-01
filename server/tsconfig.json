@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "types" : ["node", "express"],
+    "types" : ["node", "express", "jest"],
     "baseUrl": "server",
     "target": "es5",
     "allowJs": true,
@@ -17,6 +17,8 @@
     "outDir": "../build-server"
   },
   "exclude": [
-    "client"
+    "client",
+    ".history",
+    "__tests__"
   ]
 }

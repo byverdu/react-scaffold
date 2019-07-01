@@ -1,18 +1,17 @@
+import { Request, Response } from 'express';
+import path from 'path';
+import db from '../db';
+
 interface Todo {
   text: string;
   id: string;
   done: boolean;
 }
 
-import { Request, Response } from 'express';
-import path from 'path';
-import db from '../db';
-
-
 const DB_PREFIX = 'todo_';
 
 export function getRoot (req, res) {
-  const indexHtml = path.join(__dirname, '../', 'client/index.html');
+  const indexHtml = path.join(__dirname, '../../', 'client/index.html');
   res.status(200).sendFile( indexHtml );
 };
 
@@ -31,7 +30,7 @@ export function getTodos (req: Request, res: Response) {
   })
   .on('end', function () {
     res.status(200).send( todos );
-  })
+  });
 };
 
 export function postTodosAdd (req: Request, res: Response) {
@@ -67,6 +66,6 @@ export function putTodosUpdate(req: Request, res: Response) {
 
     db.put(id, JSON.stringify(todo))
     .then(() => res.status(200).send( todo ))
-    .catch(err => res.status(500).send( err ));
-  })
+    .catch(errPut => res.status(500).send( errPut ));
+  });
 }
