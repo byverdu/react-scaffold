@@ -90,7 +90,7 @@
     "test-client": "react-app-rewired test --env=jsdom --coverage --watchAll=false",
     "test-watch": "react-app-rewired test-client --env=jsdom",
     "test-server-watch": "jest ./server/__tests__ --env=node --watchAll",
-    "test-server": "jest ./server/__tests__ --env=node --watchAll=false",
+    "test-server": "jest ./server/__tests__/index.ts --env=node --watchAll=false",
     "test": "npm run test-client && npm run test-server",
     "lint": "./node_modules/.bin/eslint . --ext .ts,.tsx",
     "prettier": "./node_modules/.bin/prettier \"src/**/*\" --write",
@@ -118,6 +118,9 @@
       "!src/index.tsx",
       "!src/Models/**",
       "!src/__fixtures__/**/*"
+    ],
+    "testPathIgnorePatterns": [
+      ".history"
     ]
   },
   "eslintConfig": {

@@ -6,5 +6,6 @@ settings.json
 yarn-error.log
 app/
 server/client/*
+server/server/todosDb
 server/todosDb
 .history

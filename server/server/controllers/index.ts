@@ -8,11 +8,10 @@ import { Request, Response } from 'express';
 import path from 'path';
 import db from '../db';
 
-
 const DB_PREFIX = 'todo_';
 
 export function getRoot (req, res) {
-  const indexHtml = path.join(__dirname, '../', 'client/index.html');
+  const indexHtml = path.join(__dirname, '../../', 'client/index.html');
   res.status(200).sendFile( indexHtml );
 };
 
