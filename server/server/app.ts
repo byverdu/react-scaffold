@@ -14,7 +14,7 @@ var bodyParser = require('body-parser');
 const app: Application = express();
 
 app.use(bodyParser.json());
-app.use('/static', express.static(path.join(__dirname, '..', "/client/static")));
+app.use('/static', express.static(path.join(__dirname, '..', '/client/static')));
 
 app.get('/', getRoot);
 app.get('/todos', getTodos);
