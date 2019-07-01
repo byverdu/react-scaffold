@@ -91,7 +91,7 @@
     "test-client": "react-app-rewired test --env=jsdom --coverage --watchAll=false",
     "test-watch": "react-app-rewired test-client --env=jsdom",
     "test-server-watch": "NODE_ENV=test npm run build && jest ./server/__tests__ --env=node --watchAll",
-    "test-server": "NODE_ENV=test npm run build && jest ./server/__tests__ --env=node --watchAll=false",
+    "test-server": "NODE_ENV=test jest ./server/__tests__ --env=node --watchAll=false",
     "test": "npm run test-client && npm run test-server",
     "clearout": "rm -rf node_modules",
     "lint": "./node_modules/.bin/eslint . --ext .ts,.tsx",
@@ -137,7 +137,7 @@
     "hooks": {
       "pre-commit": "lint-staged",
       "post-commit": "npm run lint",
-      "pre-push": "CI=true && npm run lint && npm run test && npm run build"
+      "pre-push": "CI=true && npm run lint && npm run test"
     }
   },
   "browserslist": {
