@@ -2,7 +2,7 @@
 
 export default class HomePage {
   visit() {
-    cy.visit('http://localhost:3000/');
+    cy.visit('http://localhost:3001/');
   }
 
   fillAddTodoInput(todoText: string) {

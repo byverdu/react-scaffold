@@ -93,13 +93,14 @@
     "test-server-watch": "NODE_ENV=test npm run build && jest ./server/__tests__ --env=node --watchAll",
     "test-server": "NODE_ENV=test npm run build && jest ./server/__tests__ --env=node --watchAll=false",
     "test": "npm run test-client && npm run test-server",
+    "clearout": "rm -rf node_modules",
     "lint": "./node_modules/.bin/eslint . --ext .ts,.tsx",
     "prettier": "./node_modules/.bin/prettier \"src/**/*\" --write",
     "change-remote": "./scripts/changeGitRemote.sh",
     "print-tree": "./scripts/printTreeView.sh",
     "check-audit": "./scripts/yarnAudit.sh",
-    "cypress-run": "start-server-and-test 'npm run mock' http-get://localhost:3000 'node_modules/.bin/cypress run -P e2e'",
-    "cypress-open": "start-server-and-test 'npm run mock' http-get://localhost:3000 'node_modules/.bin/cypress open -P e2e'"
+    "cypress-run": "start-server-and-test 'npm run build && cd app/ && node index.js' http-get://localhost:3001 'node_modules/.bin/cypress run -P e2e'",
+    "cypress-open": "start-server-and-test 'npm run build && cd app/ && node index.js' http-get://localhost:3001 'node_modules/.bin/cypress open -P e2e'"
   },
   "jest": {
     "coverageThreshold": {
