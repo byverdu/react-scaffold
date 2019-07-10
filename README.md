@@ -11,8 +11,8 @@ Custom configuration for [create-react-app](https://facebook.github.io/create-re
 > yarn install
 > yarn start
 
-# There are some bash scripts that perform this tasks
-# you might need to make the scripts folder executable
+# There are some bash scripts that perform predefined tasks
+# you need to make the scripts folder executable
 > chmod +x ./scripts/*
 
 # Change your git remote url
@@ -21,8 +21,38 @@ Custom configuration for [create-react-app](https://facebook.github.io/create-re
 # Print the tree view of your project
 > yarn print-tree # you need have installed the tree command -> brew install tree
 
-# Stop processes with "exit 1" if a high or critical vulnerability is found
+# Stop processes with "exit 1" if a high or critical vulnerability is found, it will run in the "postinstall" npm script
 > yarn check-audit
+
+# Run eslint
+> yarn lint
+
+# Build tasks
+# Build the project, a.k.a client and server
+> yarn build
+
+# Build the client
+> yarn build-client
+
+# Build the server
+> yarn build-server
+
+# Test tasks
+# Run client and server tests
+> yarn test
+
+# Test the client
+> yarn test-client
+> yarn test-client-watch
+> yarn cypress-run # e2e tests in the CLI
+> yarn cypress-open # e2e tests trough cypress UI
+
+# Test the server
+> yarn test-server
+> yarn test-server-watch
+
+# Run prettier
+> yarn prettier
 ```
 
 More info about `create-react-app` in their [docs page](https://facebook.github.io/create-react-app/docs/getting-started).
@@ -67,6 +97,8 @@ More info about `create-react-app` in their [docs page](https://facebook.github.
 * [redux-mock-store](https://github.com/dmitry-zaets/redux-mock-store), well you may guess it.
 * e2e tests using [cypress](https://www.cypress.io/)
 * Badges from [shields.io](https://shields.io/), change **user** and **repo**
+
+[Example Project Structure markdown file](./structure.md)
 
 ---
 > Note on SCSS, there's no need to compile files during development because you can import `SCSS` files directly. Also, CSS Modules are available by default.
