@@ -89,7 +89,7 @@
     "build-server": "./scripts/buildServer.sh",
     "build": "./scripts/build.sh",
     "test-client": "react-app-rewired test --env=jsdom --coverage --watchAll=false",
-    "test-watch": "react-app-rewired test-client --env=jsdom",
+    "test-client-watch": "react-app-rewired test-client --env=jsdom",
     "test-server-watch": "NODE_ENV=test npm run build && jest ./server/__tests__ --env=node --watchAll",
     "test-server": "NODE_ENV=test jest ./server/__tests__ --env=node --watchAll=false",
     "test": "npm run test-client && npm run test-server",
