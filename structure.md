@@ -37,26 +37,6 @@
 │   │   ├── controllers
 │   │   │   └── index.ts
 │   │   ├── db.ts
-│   │   └── todosDb
-│   │       ├── 000130.ldb
-│   │       ├── 000152.log
-│   │       ├── 000153.ldb
-│   │       ├── CURRENT
-│   │       ├── LOCK
-│   │       ├── LOG
-│   │       ├── LOG.old
-│   │       └── MANIFEST-000150
-│   ├── todosDb
-│   │   ├── 000023.ldb
-│   │   ├── 000029.ldb
-│   │   ├── 000038.ldb
-│   │   ├── 000040.ldb
-│   │   ├── 000049.log
-│   │   ├── CURRENT
-│   │   ├── LOCK
-│   │   ├── LOG
-│   │   ├── LOG.old
-│   │   └── MANIFEST-000048
 │   └── tsconfig.json
 ├── src
 │   ├── Components
