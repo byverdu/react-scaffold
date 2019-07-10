@@ -1,5 +1,6 @@
 # Project Structure
 
+```text
 ├── LICENSE
 ├── README.md
 ├── config-overrides.js
@@ -116,3 +117,4 @@
 ├── tsconfig.prod.json
 ├── yarn-error.log
 └── yarn.lock
+```
